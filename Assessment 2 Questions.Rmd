@@ -1,0 +1,83 @@
+---
+title: "Thinking About Data - Questions - Ricky"
+output:
+  pdf_document: default
+  html_document: default
+date: "2025-05-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+### ASSIGNMENT CASE
+### -----------------------
+### Australian Neuroplasticity and Learning Efficiency Study
+Sleep quality and cognitive function play a vital role in overall well-being and
+productivity. This study examines these factors in adults aged 20-35 across
+Australia, including individuals from various occupational backgrounds and
+lifestyles. It explores how sleep patterns, lifestyle habits, and daily routines
+influence learning efficiency and cognitive adaptability.
+
+### Data Collection Process
+The study used stratified random sampling to capture participants from
+diverse occupations and lifestyles. Recruitment was conducted through
+university mailing lists, workplace wellness programs, and social media,
+resulting in a final sample of 300 individuals selected after screening.
+
+### Data Sources:
+• Wearable device tracking: All participants used wrist-based trackers to
+measure sleep duration, sleep consistency, and physical activity levels.
+• Self-reported surveys: Participants completed structured questionnaires on
+diet, caffeine intake, screen time, stress, and social interactions.
+• Cognitive performance tests: Standardised assessments measured memory,
+reaction time, and logical reasoning over three months.
+
+## Question 2
+Test whether gender is independent of nap frequency
+
+## Question 3
+Test whether participants who use melatonin supplements have significantly longer average sleep durations than those who don’t.
+
+## Question 4
+Test whether average sleep duration vary significantly across different genders.
+
+## Question 5
+Test if screen time before bed can be used to predict average sleep duration among office workers.
+• Fit to a suitable model and show all key steps.
+• Assess the strength of the predictive power of the model.
+• Plot the residuals. What do they suggest about the model?
+    
+
+## Question 6
+Which of your results surprised you and why? What would you test if you had more time and interest?
+
+Only create a question and explain the solution method in words.
+
+## Question 7
+### Formatting Guidelines
+This is not a question but a guideline to remind you of the submission requirements for earning 4 marks.
+
+For your assignment, follow these formatting guidelines to ensure clarity and completeness:
+
+### Content Requirements:
+  Include the full text of each question and its corresponding number.
+  Provide your statistical analysis, including all relevant R code, output (results), and solutions.
+  Offer brief yet clear explanations of each step: what you did, why you did it, and what the results mean.
+  Avoid lengthy explanations; focus on clarity and relevance.
+
+### Formatting and Presentation:
+### Use RMarkdown: Incorporate RMarkdown effectively, including code chunks, Markdown for descriptive text, proper headings, and numbering.
+### Professional Appearance: Ensure your report is well-organized, easy to read, and visually professional. Number each question and clearly present them in the document.
+            
+### Submission Instructions:
+### Prepare with RMarkdown: Create your report using RMarkdown.
+### Knit to Word: Knit your RMarkdown file into a Word document (Mac users can knit to PDF directly).
+### Convert to PDF: Save the Word document as a PDF.
+### Submit Your PDF: Upload the PDF to the submission link in vUWS under Assignment > Submit Your Assignment by the due date.
+Only one person from each group should submit.
+            
+            
+            
+            
