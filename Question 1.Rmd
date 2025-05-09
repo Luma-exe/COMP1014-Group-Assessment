@@ -31,8 +31,11 @@ Data Sources:
 
 • Cognitive performance tests: Standardised assessments measured memory, reaction time, and logical reasoning over three months.
 
+The variables in the dataset are given below.
+
 ```{r}
 SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+SleepCogStudy
 ```
-The variables in the dataset are given below.
+
 

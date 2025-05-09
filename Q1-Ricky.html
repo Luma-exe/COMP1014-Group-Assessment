@@ -13,7 +13,7 @@
 
 <meta name="date" content="2025-05-09" />
 
-<title>Q1</title>
+<title>Question 1</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,18 +350,87 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Q1</h1>
+<h1 class="title toc-ignore">Question 1</h1>
 <h4 class="author">Ricky Melo, 22090685</h4>
 <h4 class="date">2025-05-09</h4>
 
 </div>
 
 
-<div id="question-1" class="section level2">
-<h2>Question 1</h2>
-<div id="smth-goes-here" class="section level4">
-<h4>Smth Goes Here</h4>
-</div>
+<p>Question 1</p>
+<p>ASSIGNMENT CASE</p>
+<hr />
+<p>Australian Neuroplasticity and Learning Efficiency Study</p>
+<p>Sleep quality and cognitive function play a vital role in overall
+well-being and productivity. This study examines these factors in adults
+aged 20-35 across Australia, including individuals from various
+occupational backgrounds and lifestyles. It explores how sleep patterns,
+lifestyle habits, and daily routines influence learning efficiency and
+cognitive adaptability.</p>
+<p>Data Collection Process</p>
+<p>The study used stratified random sampling to capture participants
+from diverse occupations and lifestyles. Recruitment was conducted
+through university mailing lists, workplace wellness programs, and
+social media, resulting in a final sample of 300 individuals selected
+after screening.</p>
+<p>Data Sources:</p>
+<p>• Wearable device tracking: All participants used wrist-based
+trackers to measure sleep duration, sleep consistency, and physical
+activity levels.</p>
+<p>• Self-reported surveys: Participants completed structured
+questionnaires on diet, caffeine intake, screen time, stress, and social
+interactions.</p>
+<p>• Cognitive performance tests: Standardised assessments measured
+memory, reaction time, and logical reasoning over three months.</p>
+<p>The variables in the dataset are given below.</p>
+<pre class="r"><code>SleepCogStudy &lt;- read.csv(&quot;Resources/Sleep_Cognition_Study_f1PhaXA.csv&quot;)
+#SleepCogStudy</code></pre>
+<div id="dataset-variables-columns" class="section level4">
+<h4>- Dataset Variables (Columns):</h4>
+<ul>
+<li>ParticipantID: Unique identifier for each participant.</li>
+<li>Age: Age of the participant.</li>
+<li>Gender: Gender of the participant
+(Male/Female/Non-binary/Other).</li>
+<li>OccupationType: General category of employment (Student, Office
+Worker, Healthcare, Tradesperson, Night-shift Worker, Unemployed,
+etc.).</li>
+<li>AverageSleepDuration: Average hours of sleep per night.</li>
+<li>SleepQualityIndex: Self-reported sleep quality score (1-10, where 10
+is excellent).</li>
+<li>SleepConsistency: Standard deviation in sleep duration across nights
+(higher values indicate irregular sleep patterns).</li>
+<li>CaffeineIntake: Number of caffeinated drinks per day (0, 1, 2, 3,
+etc.).</li>
+<li>PhysicalActivityLevel: Hours of moderate-to-vigorous physical
+activity per week.</li>
+<li>ScreenTimeBeforeBed: Minutes spent on screens (phone, TV, laptop)
+before sleep.</li>
+<li>BlueLightExposure: 1 if participant frequently uses screens without
+blue light filters at night, 0 otherwise.</li>
+<li>StressLevel: Self-reported stress level on a scale from 1 (Low) to
+10 (High).</li>
+<li>DietQualityIndex: Composite score (1-10) based on dietary quality,
+with 10 being the healthiest.</li>
+<li>CognitiveTestScore: Average performance score on cognitive tests
+measuring reaction time, memory recall, and logical reasoning
+(0-100%).</li>
+<li>MorningAlertness: Self-reported alertness level in the morning
+(1-10).</li>
+<li>CommuteTime: Total daily commute time (in minutes).</li>
+<li>Chronotype: Self-identified sleep preference (Morning Type, Evening
+Type, Neither).</li>
+<li>NapFrequency: How often the participant takes daytime naps (Never,
+Rarely, Sometimes, Often).</li>
+<li>SocialInteractionScore: Self-reported rating of daily social
+interaction levels (1-10).</li>
+<li>MelatoninUse: 1 if the participant uses melatonin supplements, 0
+otherwise.</li>
+<li>MentalHealthHistory: 1 if the participant has been diagnosed with
+anxiety/depression, 0 otherwise.</li>
+</ul>
+<p>Please conduct all the analyses as outlined using this dataset in the
+sections below.</p>
 </div>
 
 

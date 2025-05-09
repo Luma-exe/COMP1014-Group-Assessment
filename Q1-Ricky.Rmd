@@ -1,5 +1,5 @@
 ---
-title: "Q1"
+title: "Question 1"
 author: "Ricky Melo, 22090685"
 date: "2025-05-09"
 output: html_document
@@ -9,8 +9,58 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Question 1
-#### Smth Goes Here
-```{r}
+Question 1
 
+ASSIGNMENT CASE
+
+-----------------------
+
+Australian Neuroplasticity and Learning Efficiency Study
+
+Sleep quality and cognitive function play a vital role in overall well-being and productivity. This study examines these factors in adults aged 20-35 across Australia, including individuals from various occupational backgrounds and lifestyles. It explores how sleep patterns, lifestyle habits, and daily routines influence learning efficiency and cognitive adaptability.
+
+Data Collection Process
+
+The study used stratified random sampling to capture participants from diverse occupations and lifestyles. Recruitment was conducted through university mailing lists, workplace wellness programs, and social media, resulting in a final sample of 300 individuals selected after screening.
+
+Data Sources:
+
+• Wearable device tracking: All participants used wrist-based trackers to measure sleep duration, sleep consistency, and physical activity levels.
+
+• Self-reported surveys: Participants completed structured questionnaires on diet, caffeine intake, screen time, stress, and social interactions.
+
+• Cognitive performance tests: Standardised assessments measured memory, reaction time, and logical reasoning over three months.
+
+The variables in the dataset are given below.
+
+```{r}
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+#SleepCogStudy
 ```
+
+#### - Dataset Variables (Columns):
+
+- ParticipantID: Unique identifier for each participant.
+- Age: Age of the participant.
+- Gender: Gender of the participant (Male/Female/Non-binary/Other).
+- OccupationType: General category of employment (Student, Office Worker, Healthcare, Tradesperson, Night-shift Worker, Unemployed, etc.).
+- AverageSleepDuration: Average hours of sleep per night.
+- SleepQualityIndex: Self-reported sleep quality score (1-10, where 10 is excellent).
+- SleepConsistency: Standard deviation in sleep duration across nights (higher values indicate irregular sleep patterns).
+- CaffeineIntake: Number of caffeinated drinks per day (0, 1, 2, 3, etc.).
+- PhysicalActivityLevel: Hours of moderate-to-vigorous physical activity per week.
+- ScreenTimeBeforeBed: Minutes spent on screens (phone, TV, laptop) before sleep.
+- BlueLightExposure: 1 if participant frequently uses screens without blue light filters at night, 0 otherwise.
+- StressLevel: Self-reported stress level on a scale from 1 (Low) to 10 (High).
+- DietQualityIndex: Composite score (1-10) based on dietary quality, with 10 being the healthiest.
+- CognitiveTestScore: Average performance score on cognitive tests measuring reaction time, memory recall, and logical reasoning (0-100%).
+- MorningAlertness: Self-reported alertness level in the morning (1-10).
+- CommuteTime: Total daily commute time (in minutes).
+- Chronotype: Self-identified sleep preference (Morning Type, Evening Type, Neither).
+- NapFrequency: How often the participant takes daytime naps (Never, Rarely, Sometimes, Often).
+- SocialInteractionScore: Self-reported rating of daily social interaction levels (1-10).
+- MelatoninUse: 1 if the participant uses melatonin supplements, 0 otherwise.
+- MentalHealthHistory: 1 if the participant has been diagnosed with anxiety/depression, 0 otherwise.
+
+Please conduct all the analyses as outlined using this dataset in the sections below.
+

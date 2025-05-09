@@ -382,8 +382,1514 @@ questionnaires on diet, caffeine intake, screen time, stress, and social
 interactions.</p>
 <p>• Cognitive performance tests: Standardised assessments measured
 memory, reaction time, and logical reasoning over three months.</p>
-<pre class="r"><code>SleepCogStudy &lt;- read.csv(&quot;Resources/Sleep_Cognition_Study_f1PhaXA.csv&quot;)</code></pre>
 <p>The variables in the dataset are given below.</p>
+<pre class="r"><code>SleepCogStudy &lt;- read.csv(&quot;Resources/Sleep_Cognition_Study_f1PhaXA.csv&quot;)
+SleepCogStudy</code></pre>
+<pre><code>##     ParticipantID Age     Gender     OccupationType   Chronotype NapFrequency
+## 1               1  26     Female Night-shift Worker      Neither        Never
+## 2               2  23       Male       Tradesperson Evening Type        Never
+## 3               3  32       Male         Unemployed Evening Type        Often
+## 4               4  34     Female         Healthcare Evening Type        Often
+## 5               5  30      Other      Office Worker Evening Type    Sometimes
+## 6               6  27       Male      Office Worker Morning Type    Sometimes
+## 7               7  32     Female         Healthcare Evening Type    Sometimes
+## 8               8  24     Female         Unemployed Evening Type        Never
+## 9               9  26       Male         Healthcare Evening Type        Often
+## 10             10  29     Female Night-shift Worker Evening Type       Rarely
+## 11             11  22       Male Night-shift Worker Morning Type       Rarely
+## 12             12  26     Female      Office Worker Morning Type    Sometimes
+## 13             13  30     Female       Tradesperson Morning Type        Never
+## 14             14  30     Female         Unemployed Evening Type        Never
+## 15             15  27       Male      Office Worker Evening Type    Sometimes
+## 16             16  24     Female       Tradesperson Morning Type        Never
+## 17             17  23       Male       Tradesperson      Neither    Sometimes
+## 18             18  27       Male Night-shift Worker Evening Type        Never
+## 19             19  27       Male            Student Morning Type       Rarely
+## 20             20  22     Female            Student Morning Type       Rarely
+## 21             21  25     Female       Tradesperson Morning Type       Rarely
+## 22             22  24       Male Night-shift Worker Morning Type    Sometimes
+## 23             23  21     Female       Tradesperson Morning Type       Rarely
+## 24             24  27       Male         Unemployed Morning Type    Sometimes
+## 25             25  31     Female            Student Morning Type       Rarely
+## 26             26  33       Male       Tradesperson Morning Type    Sometimes
+## 27             27  25     Female            Student      Neither        Often
+## 28             28  21       Male            Student Morning Type    Sometimes
+## 29             29  35     Female            Student Evening Type        Never
+## 30             30  31       Male         Unemployed Evening Type        Never
+## 31             31  24       Male Night-shift Worker      Neither       Rarely
+## 32             32  20       Male         Unemployed Morning Type    Sometimes
+## 33             33  31     Female      Office Worker Morning Type        Never
+## 34             34  29     Female       Tradesperson      Neither       Rarely
+## 35             35  25       Male Night-shift Worker      Neither    Sometimes
+## 36             36  32     Female Night-shift Worker      Neither       Rarely
+## 37             37  31     Female Night-shift Worker Morning Type    Sometimes
+## 38             38  28     Female Night-shift Worker Morning Type        Never
+## 39             39  20     Female         Unemployed Evening Type        Never
+## 40             40  30       Male         Healthcare Evening Type    Sometimes
+## 41             41  30       Male      Office Worker Evening Type       Rarely
+## 42             42  34     Female       Tradesperson Evening Type    Sometimes
+## 43             43  29     Female Night-shift Worker Morning Type       Rarely
+## 44             44  35     Female       Tradesperson Evening Type        Never
+## 45             45  31       Male       Tradesperson Morning Type        Often
+## 46             46  31       Male       Tradesperson Morning Type    Sometimes
+## 47             47  35     Female       Tradesperson Evening Type    Sometimes
+## 48             48  34     Female            Student Evening Type       Rarely
+## 49             49  33     Female      Office Worker Morning Type    Sometimes
+## 50             50  33     Female            Student Morning Type       Rarely
+## 51             51  34     Female            Student Evening Type        Never
+## 52             52  33       Male         Unemployed Morning Type        Often
+## 53             53  22       Male            Student Evening Type        Never
+## 54             54  31     Female Night-shift Worker Morning Type        Often
+## 55             55  26     Female         Unemployed Evening Type       Rarely
+## 56             56  23       Male         Unemployed Evening Type        Never
+## 57             57  35       Male      Office Worker Morning Type    Sometimes
+## 58             58  28     Female            Student Morning Type        Often
+## 59             59  22       Male       Tradesperson Morning Type    Sometimes
+## 60             60  24       Male       Tradesperson Morning Type        Often
+## 61             61  22     Female      Office Worker      Neither    Sometimes
+## 62             62  26     Female         Unemployed Morning Type    Sometimes
+## 63             63  24     Female       Tradesperson      Neither        Often
+## 64             64  28       Male       Tradesperson Morning Type        Never
+## 65             65  26     Female Night-shift Worker Evening Type       Rarely
+## 66             66  21       Male      Office Worker Evening Type        Never
+## 67             67  23       Male       Tradesperson Evening Type        Often
+## 68             68  28     Female       Tradesperson Evening Type        Often
+## 69             69  31     Female      Office Worker Evening Type        Never
+## 70             70  33     Female      Office Worker Morning Type    Sometimes
+## 71             71  21     Female       Tradesperson      Neither        Often
+## 72             72  29     Female      Office Worker      Neither        Never
+## 73             73  28       Male       Tradesperson      Neither    Sometimes
+## 74             74  29       Male       Tradesperson Morning Type        Often
+## 75             75  24       Male Night-shift Worker Evening Type        Never
+## 76             76  21       Male            Student      Neither    Sometimes
+## 77             77  23 Non-binary       Tradesperson Morning Type       Rarely
+## 78             78  31       Male         Healthcare Morning Type        Often
+## 79             79  34     Female         Unemployed Evening Type        Often
+## 80             80  31     Female            Student Evening Type        Often
+## 81             81  26     Female            Student      Neither       Rarely
+## 82             82  31     Female            Student Morning Type        Often
+## 83             83  32     Female Night-shift Worker Evening Type        Often
+## 84             84  27     Female       Tradesperson Morning Type       Rarely
+## 85             85  34       Male Night-shift Worker Morning Type        Often
+## 86             86  22     Female       Tradesperson Morning Type        Never
+## 87             87  33       Male Night-shift Worker      Neither    Sometimes
+## 88             88  20       Male Night-shift Worker Evening Type        Never
+## 89             89  23     Female         Unemployed Evening Type        Never
+## 90             90  21       Male         Healthcare Morning Type        Never
+## 91             91  27     Female Night-shift Worker      Neither    Sometimes
+## 92             92  23 Non-binary         Unemployed Morning Type       Rarely
+## 93             93  21     Female      Office Worker      Neither    Sometimes
+## 94             94  33       Male         Healthcare Evening Type        Never
+## 95             95  25       Male Night-shift Worker Morning Type       Rarely
+## 96             96  25     Female            Student Evening Type    Sometimes
+## 97             97  29       Male      Office Worker Morning Type    Sometimes
+## 98             98  23      Other      Office Worker Evening Type       Rarely
+## 99             99  25      Other         Unemployed Evening Type    Sometimes
+## 100           100  32     Female      Office Worker Morning Type        Often
+## 101           101  34       Male         Healthcare Morning Type    Sometimes
+## 102           102  21       Male Night-shift Worker Morning Type        Never
+## 103           103  29     Female Night-shift Worker Evening Type        Never
+## 104           104  31       Male            Student      Neither        Often
+## 105           105  21       Male         Unemployed Evening Type        Never
+## 106           106  29     Female            Student Morning Type        Often
+## 107           107  33     Female      Office Worker      Neither    Sometimes
+## 108           108  23     Female            Student Evening Type        Often
+## 109           109  33     Female         Healthcare Morning Type    Sometimes
+## 110           110  34       Male Night-shift Worker Morning Type        Often
+## 111           111  35     Female      Office Worker Evening Type       Rarely
+## 112           112  34 Non-binary            Student Evening Type    Sometimes
+## 113           113  27       Male         Unemployed Evening Type       Rarely
+## 114           114  33     Female      Office Worker      Neither       Rarely
+## 115           115  26     Female         Healthcare Evening Type    Sometimes
+## 116           116  31     Female            Student Morning Type        Often
+## 117           117  28     Female Night-shift Worker Morning Type        Often
+## 118           118  33     Female            Student Morning Type    Sometimes
+## 119           119  27       Male      Office Worker Evening Type       Rarely
+## 120           120  24       Male            Student Morning Type       Rarely
+## 121           121  35     Female      Office Worker Evening Type    Sometimes
+## 122           122  32     Female            Student Evening Type        Never
+## 123           123  21     Female Night-shift Worker      Neither        Never
+## 124           124  34     Female         Unemployed Morning Type       Rarely
+## 125           125  24     Female       Tradesperson      Neither       Rarely
+## 126           126  27     Female            Student Morning Type       Rarely
+## 127           127  29     Female Night-shift Worker      Neither        Never
+## 128           128  28     Female Night-shift Worker Morning Type        Never
+## 129           129  31     Female         Unemployed Morning Type        Never
+## 130           130  31     Female         Healthcare Evening Type        Often
+## 131           131  31     Female Night-shift Worker Morning Type       Rarely
+## 132           132  32       Male Night-shift Worker Morning Type       Rarely
+## 133           133  28       Male Night-shift Worker Evening Type    Sometimes
+## 134           134  32       Male Night-shift Worker Evening Type        Never
+## 135           135  34     Female      Office Worker Evening Type        Often
+## 136           136  32       Male      Office Worker Evening Type    Sometimes
+## 137           137  20     Female         Healthcare Evening Type        Never
+## 138           138  28     Female            Student Morning Type       Rarely
+## 139           139  26       Male Night-shift Worker Morning Type        Often
+## 140           140  28     Female         Unemployed Morning Type        Often
+## 141           141  27       Male            Student      Neither       Rarely
+## 142           142  20       Male         Unemployed Evening Type    Sometimes
+## 143           143  31     Female            Student Evening Type        Never
+## 144           144  27       Male         Healthcare Evening Type        Often
+## 145           145  27       Male Night-shift Worker      Neither        Never
+## 146           146  34     Female Night-shift Worker Morning Type        Often
+## 147           147  30     Female       Tradesperson Evening Type    Sometimes
+## 148           148  22       Male         Unemployed Evening Type    Sometimes
+## 149           149  20     Female            Student Evening Type    Sometimes
+## 150           150  27       Male            Student Morning Type        Never
+## 151           151  22       Male      Office Worker      Neither        Never
+## 152           152  22     Female       Tradesperson      Neither        Never
+## 153           153  20     Female      Office Worker Evening Type        Never
+## 154           154  30     Female      Office Worker Evening Type    Sometimes
+## 155           155  24     Female      Office Worker      Neither       Rarely
+## 156           156  29 Non-binary         Unemployed Evening Type        Never
+## 157           157  26     Female         Unemployed Morning Type        Often
+## 158           158  29       Male         Healthcare Evening Type        Often
+## 159           159  28     Female         Healthcare Evening Type        Often
+## 160           160  31       Male      Office Worker Evening Type        Often
+## 161           161  26       Male       Tradesperson Evening Type        Never
+## 162           162  28       Male            Student      Neither       Rarely
+## 163           163  27       Male         Unemployed      Neither    Sometimes
+## 164           164  31 Non-binary       Tradesperson Evening Type    Sometimes
+## 165           165  21     Female Night-shift Worker Morning Type        Never
+## 166           166  20     Female         Unemployed      Neither        Often
+## 167           167  35       Male         Unemployed      Neither        Never
+## 168           168  26       Male      Office Worker Morning Type        Never
+## 169           169  26       Male            Student      Neither    Sometimes
+## 170           170  33       Male            Student      Neither    Sometimes
+## 171           171  27     Female Night-shift Worker Evening Type    Sometimes
+## 172           172  24     Female Night-shift Worker Evening Type        Never
+## 173           173  22     Female         Unemployed Morning Type        Often
+## 174           174  31       Male      Office Worker Morning Type       Rarely
+## 175           175  27      Other         Healthcare Morning Type        Never
+## 176           176  25     Female         Healthcare Evening Type        Often
+## 177           177  30     Female         Unemployed Morning Type        Often
+## 178           178  22     Female       Tradesperson Morning Type        Often
+## 179           179  20       Male      Office Worker Morning Type        Often
+## 180           180  22       Male         Unemployed Evening Type    Sometimes
+## 181           181  24       Male      Office Worker      Neither    Sometimes
+## 182           182  34     Female      Office Worker Morning Type        Never
+## 183           183  33       Male      Office Worker Morning Type       Rarely
+## 184           184  22       Male         Unemployed Evening Type       Rarely
+## 185           185  20       Male         Healthcare Evening Type       Rarely
+## 186           186  24       Male         Healthcare Morning Type    Sometimes
+## 187           187  29     Female      Office Worker Evening Type       Rarely
+## 188           188  26     Female       Tradesperson Morning Type        Never
+## 189           189  34     Female            Student Morning Type        Never
+## 190           190  33       Male         Unemployed Evening Type    Sometimes
+## 191           191  26     Female            Student Evening Type        Never
+## 192           192  30     Female       Tradesperson      Neither        Often
+## 193           193  28       Male         Unemployed Morning Type       Rarely
+## 194           194  34       Male      Office Worker Evening Type       Rarely
+## 195           195  34       Male      Office Worker Evening Type    Sometimes
+## 196           196  29     Female            Student Morning Type        Often
+## 197           197  29     Female Night-shift Worker Evening Type       Rarely
+## 198           198  31       Male Night-shift Worker Morning Type    Sometimes
+## 199           199  32       Male       Tradesperson      Neither    Sometimes
+## 200           200  22     Female      Office Worker Morning Type       Rarely
+## 201           201  34     Female            Student Evening Type        Often
+## 202           202  35     Female      Office Worker Morning Type    Sometimes
+## 203           203  26     Female            Student      Neither    Sometimes
+## 204           204  20       Male       Tradesperson Evening Type        Often
+## 205           205  23       Male       Tradesperson Evening Type        Often
+## 206           206  32     Female Night-shift Worker Morning Type    Sometimes
+## 207           207  35       Male      Office Worker Evening Type        Often
+## 208           208  23     Female         Unemployed Morning Type    Sometimes
+## 209           209  33     Female Night-shift Worker      Neither    Sometimes
+## 210           210  24     Female      Office Worker Morning Type    Sometimes
+## 211           211  26       Male Night-shift Worker Morning Type    Sometimes
+## 212           212  26     Female         Unemployed Morning Type        Never
+## 213           213  32     Female      Office Worker Evening Type        Often
+## 214           214  34     Female      Office Worker Evening Type        Often
+## 215           215  30     Female         Healthcare Morning Type        Never
+## 216           216  32       Male         Healthcare Evening Type        Often
+## 217           217  23      Other            Student Evening Type        Never
+## 218           218  32     Female         Healthcare Evening Type       Rarely
+## 219           219  35       Male         Unemployed Evening Type    Sometimes
+## 220           220  26       Male       Tradesperson Evening Type        Never
+## 221           221  30       Male       Tradesperson Evening Type        Often
+## 222           222  22       Male            Student Morning Type        Often
+## 223           223  25       Male         Healthcare Morning Type    Sometimes
+## 224           224  31     Female      Office Worker      Neither        Never
+## 225           225  21       Male      Office Worker      Neither       Rarely
+## 226           226  29       Male Night-shift Worker Morning Type    Sometimes
+## 227           227  32     Female      Office Worker Morning Type        Often
+## 228           228  33       Male Night-shift Worker Evening Type    Sometimes
+## 229           229  28     Female      Office Worker Evening Type       Rarely
+## 230           230  24       Male         Healthcare Morning Type    Sometimes
+## 231           231  25       Male         Healthcare Morning Type    Sometimes
+## 232           232  31     Female Night-shift Worker Evening Type    Sometimes
+## 233           233  31     Female Night-shift Worker Evening Type        Never
+## 234           234  31     Female      Office Worker Morning Type    Sometimes
+## 235           235  31     Female       Tradesperson Morning Type    Sometimes
+## 236           236  23     Female      Office Worker Morning Type        Often
+## 237           237  33       Male Night-shift Worker Evening Type       Rarely
+## 238           238  33       Male         Unemployed Morning Type    Sometimes
+## 239           239  30     Female Night-shift Worker Morning Type        Often
+## 240           240  35     Female         Unemployed Evening Type        Never
+## 241           241  29      Other            Student Morning Type        Often
+## 242           242  26       Male Night-shift Worker Evening Type    Sometimes
+## 243           243  31       Male            Student Morning Type        Never
+## 244           244  28     Female       Tradesperson Morning Type       Rarely
+## 245           245  26       Male      Office Worker Morning Type    Sometimes
+## 246           246  33     Female         Unemployed Evening Type        Never
+## 247           247  20     Female      Office Worker      Neither    Sometimes
+## 248           248  20       Male            Student      Neither       Rarely
+## 249           249  28     Female         Unemployed Morning Type    Sometimes
+## 250           250  30     Female      Office Worker Evening Type        Never
+## 251           251  33       Male Night-shift Worker Morning Type        Often
+## 252           252  28     Female      Office Worker Morning Type        Often
+## 253           253  23     Female            Student      Neither        Often
+## 254           254  32     Female      Office Worker Morning Type    Sometimes
+## 255           255  28       Male            Student Morning Type        Never
+## 256           256  22     Female            Student Morning Type    Sometimes
+## 257           257  26       Male         Unemployed Morning Type        Never
+## 258           258  25       Male         Unemployed Morning Type        Never
+## 259           259  27     Female      Office Worker Evening Type       Rarely
+## 260           260  30       Male Night-shift Worker Evening Type       Rarely
+## 261           261  28       Male            Student      Neither    Sometimes
+## 262           262  33 Non-binary      Office Worker      Neither    Sometimes
+## 263           263  24      Other       Tradesperson Morning Type       Rarely
+## 264           264  20     Female            Student Morning Type       Rarely
+## 265           265  22     Female            Student Morning Type        Often
+## 266           266  29       Male      Office Worker Evening Type       Rarely
+## 267           267  31       Male Night-shift Worker Morning Type       Rarely
+## 268           268  27       Male       Tradesperson Evening Type        Never
+## 269           269  34     Female         Unemployed Evening Type    Sometimes
+## 270           270  30     Female         Unemployed Evening Type    Sometimes
+## 271           271  25     Female      Office Worker Evening Type        Never
+## 272           272  35     Female       Tradesperson Morning Type        Never
+## 273           273  35       Male         Unemployed      Neither    Sometimes
+## 274           274  27     Female      Office Worker Evening Type    Sometimes
+## 275           275  28       Male Night-shift Worker Morning Type       Rarely
+## 276           276  23     Female      Office Worker      Neither        Often
+## 277           277  20       Male         Unemployed Evening Type        Never
+## 278           278  33     Female         Healthcare Evening Type       Rarely
+## 279           279  20       Male      Office Worker Evening Type        Often
+## 280           280  29       Male         Healthcare Evening Type       Rarely
+## 281           281  23       Male         Unemployed Morning Type    Sometimes
+## 282           282  31     Female         Healthcare Morning Type       Rarely
+## 283           283  33     Female       Tradesperson Evening Type       Rarely
+## 284           284  26       Male Night-shift Worker Evening Type        Often
+## 285           285  21       Male      Office Worker Morning Type       Rarely
+## 286           286  22     Female      Office Worker Morning Type        Often
+## 287           287  20       Male         Unemployed      Neither        Never
+## 288           288  24     Female      Office Worker      Neither        Never
+## 289           289  20     Female      Office Worker Evening Type        Never
+## 290           290  27       Male            Student Morning Type    Sometimes
+## 291           291  20       Male Night-shift Worker Morning Type       Rarely
+## 292           292  30 Non-binary       Tradesperson Morning Type        Often
+## 293           293  20       Male      Office Worker      Neither       Rarely
+## 294           294  21       Male            Student Morning Type        Often
+## 295           295  21     Female            Student Evening Type        Never
+## 296           296  31     Female         Unemployed Morning Type        Often
+## 297           297  25 Non-binary      Office Worker Evening Type    Sometimes
+## 298           298  26     Female         Unemployed Evening Type    Sometimes
+## 299           299  24       Male       Tradesperson      Neither        Often
+## 300           300  35       Male            Student Morning Type    Sometimes
+##     MelatoninUse MentalHealthHistory BlueLightExposure CaffeineIntake
+## 1              0                   0                 0              3
+## 2              0                   1                 0              1
+## 3              0                   0                 0              1
+## 4              1                   0                 1              1
+## 5              0                   0                 1              3
+## 6              0                   1                 0              1
+## 7              0                   0                 1              0
+## 8              0                   1                 1              2
+## 9              0                   1                 1              3
+## 10             0                   0                 1              0
+## 11             0                   0                 0              1
+## 12             0                   0                 1              0
+## 13             0                   0                 0              1
+## 14             0                   1                 1              1
+## 15             0                   1                 1              2
+## 16             0                   0                 1              2
+## 17             0                   0                 1              2
+## 18             0                   1                 0              1
+## 19             0                   0                 0              3
+## 20             0                   1                 1              1
+## 21             0                   0                 1              3
+## 22             0                   0                 0              2
+## 23             0                   0                 0              0
+## 24             0                   0                 0              2
+## 25             0                   0                 1              1
+## 26             0                   0                 1              2
+## 27             1                   0                 0              0
+## 28             0                   0                 0              0
+## 29             0                   1                 1              3
+## 30             0                   0                 1              1
+## 31             0                   0                 0              3
+## 32             0                   0                 0              1
+## 33             1                   0                 0              2
+## 34             0                   0                 0              2
+## 35             0                   0                 0              2
+## 36             0                   0                 1              1
+## 37             0                   0                 1              1
+## 38             0                   0                 1              0
+## 39             0                   0                 1              1
+## 40             0                   1                 0              2
+## 41             0                   0                 0              3
+## 42             0                   0                 0              3
+## 43             0                   0                 0              2
+## 44             0                   0                 1              2
+## 45             0                   0                 1              2
+## 46             0                   0                 0              1
+## 47             0                   1                 0              3
+## 48             0                   0                 1              2
+## 49             0                   0                 0              2
+## 50             1                   0                 0              0
+## 51             0                   0                 1              1
+## 52             0                   0                 1              1
+## 53             0                   0                 0              3
+## 54             0                   0                 0              2
+## 55             0                   1                 1              1
+## 56             0                   0                 0              3
+## 57             1                   0                 0              0
+## 58             0                   0                 1              1
+## 59             0                   0                 0              0
+## 60             0                   0                 1              2
+## 61             1                   0                 0              3
+## 62             0                   0                 1              1
+## 63             1                   1                 0              3
+## 64             0                   0                 0              1
+## 65             1                   0                 0              3
+## 66             0                   1                 0              2
+## 67             1                   0                 1              3
+## 68             0                   0                 1              0
+## 69             0                   0                 0              3
+## 70             0                   0                 0              2
+## 71             0                   0                 1              1
+## 72             0                   1                 1              3
+## 73             0                   0                 0              1
+## 74             0                   0                 0              3
+## 75             0                   0                 0              4
+## 76             0                   0                 1              2
+## 77             0                   0                 0              2
+## 78             1                   0                 1              0
+## 79             0                   1                 0              1
+## 80             1                   0                 1              0
+## 81             0                   0                 0              1
+## 82             0                   0                 0              1
+## 83             0                   0                 0              2
+## 84             0                   0                 1              1
+## 85             0                   0                 0              1
+## 86             0                   1                 0              2
+## 87             0                   0                 0              0
+## 88             0                   0                 0              3
+## 89             0                   1                 1              3
+## 90             0                   1                 1              2
+## 91             0                   0                 1              2
+## 92             0                   0                 0              3
+## 93             0                   0                 1              0
+## 94             0                   1                 0              0
+## 95             0                   1                 0              1
+## 96             0                   0                 0              2
+## 97             0                   1                 0              0
+## 98             1                   0                 1              2
+## 99             0                   0                 1              3
+## 100            0                   0                 1              3
+## 101            0                   1                 0              2
+## 102            0                   0                 0              0
+## 103            0                   1                 0              3
+## 104            1                   1                 0              2
+## 105            0                   0                 0              0
+## 106            1                   0                 0              0
+## 107            0                   0                 0              3
+## 108            0                   0                 0              2
+## 109            0                   0                 1              3
+## 110            0                   0                 1              3
+## 111            1                   1                 1              2
+## 112            1                   0                 1              2
+## 113            0                   0                 0              1
+## 114            0                   0                 1              1
+## 115            0                   0                 1              1
+## 116            1                   0                 0              2
+## 117            0                   0                 0              2
+## 118            0                   1                 1              3
+## 119            0                   0                 0              1
+## 120            0                   1                 0              2
+## 121            0                   1                 0              2
+## 122            0                   0                 0              2
+## 123            0                   1                 0              2
+## 124            0                   0                 0              1
+## 125            0                   1                 0              2
+## 126            1                   0                 0              0
+## 127            0                   1                 1              1
+## 128            0                   1                 0              1
+## 129            0                   1                 0              2
+## 130            0                   1                 0              3
+## 131            1                   0                 1              2
+## 132            0                   0                 0              2
+## 133            0                   0                 0              2
+## 134            0                   0                 1              2
+## 135            0                   0                 1              0
+## 136            0                   0                 0              1
+## 137            0                   1                 1              1
+## 138            1                   0                 0              1
+## 139            0                   1                 0              0
+## 140            0                   0                 0              0
+## 141            0                   1                 0              1
+## 142            0                   1                 1              3
+## 143            0                   0                 0              1
+## 144            1                   0                 0              1
+## 145            0                   1                 1              0
+## 146            0                   0                 1              2
+## 147            0                   0                 0              1
+## 148            0                   0                 1              1
+## 149            0                   0                 0              2
+## 150            0                   0                 1              4
+## 151            0                   0                 1              0
+## 152            0                   0                 1              1
+## 153            0                   0                 0              0
+## 154            0                   1                 0              0
+## 155            0                   0                 0              1
+## 156            0                   1                 0              3
+## 157            0                   0                 0              2
+## 158            0                   0                 1              2
+## 159            0                   0                 0              1
+## 160            0                   0                 0              3
+## 161            0                   0                 1              1
+## 162            1                   0                 0              0
+## 163            1                   0                 1              2
+## 164            0                   0                 0              0
+## 165            0                   0                 0              1
+## 166            1                   0                 0              2
+## 167            0                   0                 0              3
+## 168            0                   1                 1              1
+## 169            0                   0                 0              2
+## 170            0                   0                 0              3
+## 171            1                   1                 0              0
+## 172            0                   0                 0              1
+## 173            0                   0                 1              1
+## 174            0                   1                 0              1
+## 175            1                   0                 1              1
+## 176            0                   0                 1              3
+## 177            1                   0                 0              2
+## 178            0                   0                 1              2
+## 179            1                   0                 0              1
+## 180            1                   0                 0              3
+## 181            1                   0                 0              3
+## 182            0                   0                 1              3
+## 183            1                   1                 1              0
+## 184            0                   1                 0              2
+## 185            1                   0                 1              0
+## 186            0                   0                 0              1
+## 187            0                   0                 0              0
+## 188            0                   0                 0              2
+## 189            0                   0                 1              2
+## 190            0                   0                 1              0
+## 191            0                   1                 0              1
+## 192            1                   0                 0              1
+## 193            0                   0                 0              1
+## 194            0                   0                 0              0
+## 195            0                   0                 0              1
+## 196            1                   1                 1              2
+## 197            0                   0                 0              0
+## 198            0                   1                 0              0
+## 199            0                   0                 0              1
+## 200            1                   0                 1              3
+## 201            0                   0                 1              2
+## 202            0                   0                 0              2
+## 203            1                   0                 1              1
+## 204            1                   1                 0              2
+## 205            0                   0                 0              0
+## 206            0                   0                 0              2
+## 207            0                   0                 0              3
+## 208            1                   0                 0              2
+## 209            0                   0                 1              3
+## 210            0                   1                 1              2
+## 211            1                   1                 1              0
+## 212            0                   1                 0              3
+## 213            0                   0                 0              0
+## 214            0                   0                 1              2
+## 215            0                   0                 0              0
+## 216            0                   0                 0              0
+## 217            0                   1                 0              1
+## 218            0                   0                 1              1
+## 219            0                   0                 0              1
+## 220            1                   0                 0              2
+## 221            0                   0                 1              0
+## 222            1                   0                 0              0
+## 223            0                   0                 0              2
+## 224            1                   0                 0              1
+## 225            0                   0                 0              2
+## 226            0                   0                 1              2
+## 227            0                   1                 0              3
+## 228            1                   1                 0              2
+## 229            0                   1                 1              1
+## 230            0                   1                 1              2
+## 231            0                   0                 1              1
+## 232            1                   0                 0              1
+## 233            0                   0                 0              2
+## 234            0                   0                 1              1
+## 235            0                   1                 1              2
+## 236            1                   0                 0              3
+## 237            0                   1                 0              3
+## 238            0                   0                 0              3
+## 239            0                   0                 1              1
+## 240            0                   0                 0              1
+## 241            0                   1                 0              2
+## 242            0                   0                 0              1
+## 243            0                   0                 1              2
+## 244            0                   0                 1              2
+## 245            0                   0                 0              2
+## 246            0                   0                 1              1
+## 247            1                   0                 1              0
+## 248            0                   0                 0              1
+## 249            0                   0                 0              0
+## 250            0                   0                 0              3
+## 251            1                   0                 1              1
+## 252            0                   0                 0              0
+## 253            1                   0                 1              0
+## 254            0                   0                 1              2
+## 255            0                   0                 0              2
+## 256            0                   1                 1              1
+## 257            0                   0                 0              0
+## 258            0                   0                 0              1
+## 259            0                   0                 1              1
+## 260            0                   0                 1              2
+## 261            0                   1                 0              2
+## 262            0                   0                 1              1
+## 263            0                   0                 1              1
+## 264            0                   0                 0              3
+## 265            0                   0                 1              1
+## 266            1                   0                 0              2
+## 267            0                   1                 0              0
+## 268            0                   0                 0              1
+## 269            0                   0                 1              0
+## 270            0                   0                 1              2
+## 271            0                   1                 0              3
+## 272            0                   0                 0              1
+## 273            1                   1                 1              0
+## 274            0                   0                 0              0
+## 275            1                   0                 1              1
+## 276            1                   0                 1              0
+## 277            0                   0                 0              0
+## 278            0                   0                 1              2
+## 279            0                   1                 0              1
+## 280            0                   0                 1              1
+## 281            0                   0                 1              3
+## 282            0                   0                 1              0
+## 283            0                   1                 0              3
+## 284            1                   1                 1              1
+## 285            0                   0                 0              3
+## 286            0                   1                 0              2
+## 287            0                   0                 0              3
+## 288            0                   0                 0              3
+## 289            0                   0                 0              1
+## 290            0                   1                 1              3
+## 291            0                   0                 1              1
+## 292            0                   0                 0              1
+## 293            0                   0                 1              1
+## 294            1                   1                 0              2
+## 295            0                   0                 1              0
+## 296            0                   0                 1              2
+## 297            0                   0                 0              2
+## 298            0                   0                 1              2
+## 299            0                   0                 0              3
+## 300            1                   1                 0              1
+##     PhysicalActivityLevel SleepConsistency DietQualityIndex CommuteTime
+## 1                     1.1             2.04         6.307664          63
+## 2                     0.9             2.65         7.532935          43
+## 3                     0.6             2.00         2.564412          42
+## 4                     0.2             1.58         6.569737          38
+## 5                     1.3             1.02         7.620690          50
+## 6                     0.9             2.75         5.460717          50
+## 7                    10.2             1.10         8.213930          35
+## 8                     2.4             2.31         7.282373          42
+## 9                     1.3             2.18        10.000000          35
+## 10                    2.6             1.66         4.498794          34
+## 11                    0.4             1.64         7.661420          19
+## 12                    1.8             0.70         3.965352          42
+## 13                    3.0             2.00         2.769267          19
+## 14                    2.0             2.17         1.928938          38
+## 15                    1.5             1.15         7.076648          36
+## 16                   15.3             1.71         6.368496          61
+## 17                    6.4             1.82         5.041898          30
+## 18                    2.9             2.15         2.452991          34
+## 19                    2.5             1.80         4.619227          39
+## 20                    2.9             0.82         6.008186          36
+## 21                    0.7             1.48         7.586339          66
+## 22                    1.5             1.93         5.966928          28
+## 23                    0.1             2.30         6.504121          39
+## 24                    1.9             1.43         5.247735          50
+## 25                    2.3             3.11         9.498448          58
+## 26                    0.8             0.66         3.963501          39
+## 27                   10.0             1.46         4.601524          16
+## 28                    7.2             1.75         5.015284          43
+## 29                    3.8             1.68         7.085409          65
+## 30                    2.3             1.06         3.922280          49
+## 31                    6.1             2.07         6.271437          49
+## 32                    0.4             2.02         6.329820          29
+## 33                    4.7             1.83         4.611284          28
+## 34                    0.4             2.00         6.659959          45
+## 35                    4.7             1.55         3.984372          24
+## 36                    1.0             0.83         3.765852          57
+## 37                    6.3             1.37         6.199212          32
+## 38                    8.6             1.89         2.680489          45
+## 39                    0.5             1.90         1.710395          17
+## 40                    1.9             1.82         7.065667          39
+## 41                   11.9             2.13         8.097940          27
+## 42                    2.0             1.45         5.066394          10
+## 43                    6.0             1.82         4.663859          53
+## 44                    2.7             2.14         8.011070          70
+## 45                    1.4             1.75         3.708924          62
+## 46                    1.0             1.05         3.273255          55
+## 47                    0.7             1.22         7.415273          39
+## 48                    4.3             2.30         6.018076          57
+## 49                    1.5             2.64         8.129753          63
+## 50                    2.1             2.51         1.719468          47
+## 51                    2.0             1.94         3.198652          27
+## 52                    2.6             1.08         6.028664          38
+## 53                    6.0             1.80         6.835347          71
+## 54                   11.8             2.74         7.693994          44
+## 55                    1.6             2.17         6.349636           0
+## 56                    5.3             1.68         6.329310          23
+## 57                    4.3             2.18         5.221197          39
+## 58                    2.6             1.04         9.181810          61
+## 59                    9.4             1.38         3.793953          41
+## 60                    0.7             1.15         6.718040          61
+## 61                    0.3             2.08         4.024382          37
+## 62                    5.8             2.23         7.069557          16
+## 63                    1.7             1.71         3.925965          38
+## 64                    5.6             1.28         7.487631          50
+## 65                    6.7             1.79         6.224210          49
+## 66                    0.2             1.51         9.489278          26
+## 67                    6.4             1.32         5.437961          40
+## 68                    1.8             2.00         6.849932          85
+## 69                    2.1             1.35         4.440687          27
+## 70                    3.0             0.86         5.424214          55
+## 71                    7.8             0.99         6.211499          14
+## 72                    0.1             0.84         2.945560          58
+## 73                    1.9             1.95         3.164752          32
+## 74                    3.5             1.89         7.199719          51
+## 75                    3.8             1.86         5.707826          26
+## 76                    3.5             2.15         4.814147          49
+## 77                    0.4             2.52         4.526028          31
+## 78                    1.1             1.44         4.603022          34
+## 79                    1.3             2.04         6.225101          52
+## 80                    4.9             0.85         6.890072          39
+## 81                    1.0             2.63         1.815786          51
+## 82                    0.7             1.05         8.825668          42
+## 83                    9.5             1.37         8.683402          46
+## 84                    0.0             1.44         1.338690          52
+## 85                   18.4             0.88         8.171853          40
+## 86                    3.4             1.82         8.110438          30
+## 87                    5.3             1.93         6.000891          37
+## 88                    1.0             1.69         3.405663          63
+## 89                    0.0             0.88         8.030456          47
+## 90                    4.0             2.99         5.517538          32
+## 91                    5.4             2.13         7.097758          51
+## 92                    4.0             3.38         9.800000          52
+## 93                    0.5             1.32         6.503674          53
+## 94                    4.2             2.37         4.166231          30
+## 95                    4.4             2.27         5.328538          35
+## 96                    3.2             1.63         4.421109          35
+## 97                    4.4             2.65         6.866979          40
+## 98                    5.6             1.56         4.387865          53
+## 99                    2.9             1.58         5.054297          49
+## 100                   0.3            -0.28         3.431139          51
+## 101                   2.0             2.05         5.735826          65
+## 102                   0.2             1.00         6.353510          55
+## 103                   1.6             1.47         1.300000          43
+## 104                   1.6             1.18         6.519147          27
+## 105                   0.2             1.58         5.908600          34
+## 106                   1.3             2.07         4.470016          41
+## 107                   0.4             1.81         9.580000          57
+## 108                   5.0             2.23         7.916953          45
+## 109                   8.9             2.56         3.807195          35
+## 110                   0.2             1.58         7.676474          34
+## 111                   9.3             1.51         8.488996          44
+## 112                   2.2             2.37         6.264042          58
+## 113                   1.1             2.42         6.722884          69
+## 114                   0.2             2.24         6.676693          42
+## 115                   2.1             1.23         1.828368          44
+## 116                   4.7             2.05         5.626261          27
+## 117                   3.7             1.87         5.522174          74
+## 118                   0.2             2.43         8.860311          24
+## 119                   0.2             1.46         6.667456          63
+## 120                   1.5             0.80         5.404778          40
+## 121                   1.0             2.21         5.819751          36
+## 122                   0.8             0.26         8.046771          28
+## 123                   1.0             1.36         5.630831          81
+## 124                   4.9             1.19         4.603609          48
+## 125                   7.9             1.18         5.448596          45
+## 126                   1.6             1.35         7.881392          58
+## 127                   7.1             2.53         6.992330          35
+## 128                   1.2             2.29         6.088536          45
+## 129                   1.9             1.65         6.383079          46
+## 130                   0.8             2.48         4.880515          37
+## 131                   3.1             1.16         5.612101          63
+## 132                  11.6             1.08         4.673391          42
+## 133                   2.8             2.32         5.410441          22
+## 134                   1.3             2.15         8.692357          40
+## 135                   3.1             1.52         3.844256          49
+## 136                   0.4             1.12         4.622565          32
+## 137                   6.6             2.68         3.491402          33
+## 138                   2.1             0.77         3.058182          37
+## 139                   1.8             1.44         5.626456          63
+## 140                   2.6             1.94         4.764782          38
+## 141                   2.9             2.88         9.523378          66
+## 142                   0.2             2.03         5.434307          36
+## 143                   3.4             2.09         8.578794          50
+## 144                   0.8             1.46         7.936013          38
+## 145                   3.8             2.14         5.582092          56
+## 146                   5.2             1.86         9.440000          28
+## 147                   4.9             0.85         6.537068          56
+## 148                   2.4             2.28         9.026019          47
+## 149                   2.2             2.38         8.793194          35
+## 150                   0.5             2.28         6.829296          43
+## 151                   4.5             1.82         7.502262          68
+## 152                   0.9             1.23         7.248143          47
+## 153                   2.1             0.41         3.711477          34
+## 154                   1.0             1.89         6.114581          27
+## 155                   0.4             2.45         8.148494          53
+## 156                   3.0             2.40         9.052373          48
+## 157                   0.2             2.29         4.558721          55
+## 158                   4.1             1.76         7.057663          23
+## 159                   1.1             2.45         6.301740          27
+## 160                   0.2             2.35         5.764252          62
+## 161                   2.1             1.55         6.712005          50
+## 162                   0.1             2.21         6.435995          53
+## 163                   1.0             1.48         7.082815          31
+## 164                   3.7             2.12         8.883434          30
+## 165                   0.2             1.02         7.568255          60
+## 166                   5.5             1.07         6.621183          61
+## 167                   0.1             2.43         9.729250          29
+## 168                   0.9             2.36         8.219859          26
+## 169                   4.1             2.18         5.815203          43
+## 170                   1.1             1.85         3.565759          33
+## 171                   0.3             0.37         4.024339          33
+## 172                   1.3             1.76         7.866465          26
+## 173                   0.9             2.07         4.739375          38
+## 174                   5.5             1.48         3.983889          28
+## 175                   1.1             1.37         4.483829          29
+## 176                   4.7             2.67         4.625231          49
+## 177                   6.7             1.76         7.701295          44
+## 178                   1.7             2.07         5.686516          52
+## 179                   7.2             2.26         3.255251          20
+## 180                   1.4             1.20         6.062090          45
+## 181                  10.0             1.92         6.444532          76
+## 182                   0.3             2.59         5.041326          39
+## 183                   3.5             2.89         8.311770          57
+## 184                   2.0             1.82         5.158122          57
+## 185                   1.5             1.66         8.216675          58
+## 186                   3.0             1.96         7.193566          47
+## 187                   3.7             1.95         7.853211          53
+## 188                   0.3             2.63         3.802898          55
+## 189                   0.5             1.20         6.196620          55
+## 190                   3.7             1.63         5.894344          28
+## 191                   3.3             1.13         3.155987          19
+## 192                  10.1             1.19         8.210121          22
+## 193                   4.3             2.03         4.365198          41
+## 194                   9.0             2.29         4.780864          54
+## 195                   3.6             1.41         3.973368          28
+## 196                   1.1             2.26         7.402373          59
+## 197                   0.3             2.47         2.948141          37
+## 198                   4.6             2.96         7.235750          38
+## 199                   3.1             1.84         8.089028          32
+## 200                   0.1             1.42         7.074357          17
+## 201                   1.3             1.20         7.425257          48
+## 202                   9.4             1.14         7.519093          71
+## 203                   2.1             2.55         4.101151          44
+## 204                   1.7             0.89         8.869470          17
+## 205                   1.8             2.53         5.079847          57
+## 206                   0.7             1.28         5.867225          21
+## 207                   1.4             1.39         5.334725          27
+## 208                   1.4             1.71         6.983084          41
+## 209                   0.2             1.38         4.923926          47
+## 210                   4.4             2.36         6.133831          30
+## 211                   1.6             2.89         3.529312          41
+## 212                   5.2             1.41         8.329330          56
+## 213                   5.7             1.54         7.341482          58
+## 214                   0.7             1.70         5.415480          64
+## 215                   3.2             2.12         5.061702          74
+## 216                   1.9             1.71         7.289256          57
+## 217                   6.4             2.63         4.585413          42
+## 218                   0.7             2.49         6.250731          58
+## 219                   3.4             1.09         8.322798          52
+## 220                   2.8             2.11         4.377486          53
+## 221                   1.0             2.71         6.737202          48
+## 222                   0.4             1.50         6.631451          31
+## 223                   3.2             1.62         5.805326          30
+## 224                   4.0             1.48         4.992421          44
+## 225                   1.1             1.50         8.429594          47
+## 226                   3.1             0.80         4.804863          35
+## 227                   1.5             1.00         2.375922          51
+## 228                   3.7             1.85         7.281067          76
+## 229                   0.7             2.71         3.597393          19
+## 230                   6.6             1.43         7.383762          54
+## 231                   1.0             1.41         8.669806          44
+## 232                   1.4             2.82         7.259500          52
+## 233                   0.2             1.14         8.142823          39
+## 234                   0.4             0.80         9.150000          43
+## 235                   2.2             1.30         7.933521          47
+## 236                   0.9             1.40         6.661147          40
+## 237                   5.4             0.75         9.267896          22
+## 238                   0.0             1.72         9.509551          41
+## 239                   1.4             2.37         9.537544          24
+## 240                   1.2             1.03         5.015713          55
+## 241                   0.1             1.85         3.291963          17
+## 242                   0.4             2.04         4.893616          60
+## 243                   1.6             1.75         7.407283          51
+## 244                   2.0             1.91         6.318318          52
+## 245                   1.6             1.92         5.587038          13
+## 246                   2.3             1.31         7.120963          40
+## 247                   2.7             2.70         3.058390          62
+## 248                   0.0             2.55         6.282339          37
+## 249                   1.9             2.51         8.236915          29
+## 250                   9.9             2.41         7.098631          35
+## 251                   2.2             0.86         7.383620          44
+## 252                   3.4             2.36         9.194746          32
+## 253                   1.1             2.19         5.867713          64
+## 254                   4.5             0.88         4.693817          44
+## 255                   4.4             1.67         8.379030          37
+## 256                   2.2             1.97         8.342241          25
+## 257                  11.2             2.80         7.116583          52
+## 258                   0.4             2.23         5.679258          52
+## 259                   0.1             1.28         6.002759          33
+## 260                   4.4             2.82         3.446454          11
+## 261                   4.9             1.83         8.225893          51
+## 262                   0.4             1.65         8.155303          42
+## 263                   0.9             1.60         3.376634          50
+## 264                   0.1             0.83         7.735264          74
+## 265                   1.0             1.73         6.808203          45
+## 266                   4.5             2.10         3.956052          37
+## 267                   2.2             1.57         3.588000          28
+## 268                   1.3             2.05         6.746987          40
+## 269                   1.4             1.28         5.204592          47
+## 270                   0.0             1.72         9.639898          46
+## 271                   1.1             1.99         7.905197          71
+## 272                   3.1             1.91         6.947386          52
+## 273                  11.0             0.84         7.046158          43
+## 274                   5.6             1.54         8.661734          34
+## 275                   0.1             2.81         7.693036          49
+## 276                   6.9             1.50         6.999533          31
+## 277                   4.6             1.81         4.039478          48
+## 278                   4.5             1.75         9.100000          52
+## 279                   1.8             2.74         3.793634          42
+## 280                   1.5             2.57         5.374915          36
+## 281                   1.1             2.28         2.690543          12
+## 282                   0.2             1.22         7.077596          62
+## 283                   0.8             2.02         6.302221          51
+## 284                   0.8             2.14         7.530553          51
+## 285                   2.0             1.38         2.521869          22
+## 286                   4.1             1.28         8.225811          66
+## 287                   1.9             2.82         4.385129          38
+## 288                   0.2             1.62         5.701990          41
+## 289                   9.5             2.77         7.863143          29
+## 290                   8.6             2.40         6.522533          18
+## 291                   4.6             2.04         6.663885          62
+## 292                  14.2             2.07         7.598358          64
+## 293                   2.4             0.96         6.857581          43
+## 294                   9.9             1.92         5.317784          35
+## 295                   0.2             2.65         5.667062          39
+## 296                   1.4             2.21         6.423757          40
+## 297                   0.8             1.89         4.208888          27
+## 298                   0.7             2.83         7.992017          41
+## 299                   0.5             1.69         6.577308          47
+## 300                   2.9             1.43         6.149553          60
+##     ScreenTimeBeforeBed SocialInteractionScore AverageSleepDuration StressLevel
+## 1              80.28488              5.6800053             7.816868    7.582979
+## 2              48.47297              6.2399350             6.573731    6.574109
+## 3              87.07096              8.3752159             7.401919    7.199860
+## 4              74.88139              4.3233317             7.078037    6.954767
+## 5              97.40819              8.9892489             7.345526    4.165814
+## 6              98.58916              3.6310566             7.651220    6.989980
+## 7             109.28909              6.2587902             7.053364    4.449394
+## 8              68.76824              5.5662945             6.632589    5.642767
+## 9             119.79710              8.4668741             6.296273   10.427455
+## 10             87.01885              5.1865765             8.806516    8.578924
+## 11            112.52761              3.3048930             6.149290    4.974742
+## 12             59.94761              8.2355692             8.049994    7.219954
+## 13             74.02807              4.7499397             7.338892    8.187038
+## 14             85.48055              4.2576171             6.665864    4.455701
+## 15             73.03755              3.1233755             5.655351    6.815475
+## 16            105.09624              5.4619443             6.711600    5.186109
+## 17             75.35741              4.7394127             7.091101    3.088261
+## 18            103.29230              5.8146627             8.306535    7.269325
+## 19            109.64469              6.1211874             5.639807    8.374370
+## 20             90.73216              3.7784173             8.794769    8.962071
+## 21             93.09353              7.4938080             6.878811    6.325954
+## 22             70.53470              6.3824951             7.377829   10.452468
+## 23            127.00412              3.2309276             5.906928    3.613050
+## 24             66.71335              7.3795550             7.314706    7.234325
+## 25            108.45886              6.2773018             6.973051    4.581559
+## 26             84.70808              8.0860987             7.937327    6.835274
+## 27             90.48687              6.1858761             6.321678    4.217140
+## 28             93.28784              4.8124360             7.906781    5.760316
+## 29            125.15267              4.4935570             6.861416    5.809679
+## 30             66.15696              7.2058790             7.608229    5.461024
+## 31            106.16024              4.8438944             6.279058    3.859564
+## 32             56.42367              5.3395548             6.071857    9.598689
+## 33             96.93339              5.6674671             7.372725    6.665286
+## 34             70.51309              4.2759426             7.187296    4.146807
+## 35             81.46869              4.8655149             5.614572    6.826182
+## 36             73.27243              6.2588253             7.793285    6.407985
+## 37            105.64727              7.8037166             7.496525    5.006902
+## 38            101.75480              6.4757205             5.770335    6.229832
+## 39             88.87003              5.9312081             5.977415    8.474841
+## 40             56.96263              3.5530938             6.697039    5.411781
+## 41             65.69956              7.6427406             7.023895    4.955388
+## 42             59.42847              6.6502583             6.735829    5.880833
+## 43             35.03714              4.9399054             6.939082    6.895293
+## 44            105.22636              7.3479727             6.721478    6.351543
+## 45             73.44353              6.8393656             5.631731    6.743877
+## 46             73.23012              4.7797045             5.746704    6.294585
+## 47            109.92204              4.6479326             3.777722    6.540821
+## 48             85.48023              5.2608409             7.942545    8.556977
+## 49             63.19058              9.9503069             7.015227   10.286149
+## 50             90.50509              6.7976173             8.347851    7.265638
+## 51             72.34662              6.2801431             5.862262    6.550045
+## 52             86.88712              6.7089946             7.024407    4.306545
+## 53             87.52676              8.0687439             7.214827    4.859373
+## 54             69.85457              5.8749298             6.438218    4.809896
+## 55             68.12194              3.9151361             5.446572    5.627405
+## 56             77.87557              7.2664248             8.745871    5.085149
+## 57             81.66962              5.7375832             9.199283    8.363084
+## 58             84.60050              4.3951570             6.618068    6.743186
+## 59             72.82468              4.1029704             7.510228    5.177318
+## 60             78.36954              8.2939448             6.515209    5.688714
+## 61             66.35164              6.1974668             6.804596    8.466317
+## 62             80.62152              5.1156489             8.827262    5.681132
+## 63             66.46658              4.4484976             6.144631    5.918705
+## 64            100.09186              7.2111671             6.214496    3.628874
+## 65             81.93656              5.5598917             7.884324    4.908347
+## 66             59.92306              2.6258704             8.651237    5.871913
+## 67             86.88768              6.4887613             8.696589    7.526870
+## 68             78.51263              7.8125217             5.327750    9.465848
+## 69             35.32347              7.7121965             7.797250    4.847079
+## 70             76.81905              5.1610051             7.021060    4.316770
+## 71             59.60988              7.9037590             6.771662    4.585521
+## 72             88.68856              5.1194250             7.619809    5.475943
+## 73             75.16501              7.8617210             5.590893    7.026125
+## 74             95.60141              6.8605305             6.091364    5.510065
+## 75             67.39563              3.7176047             7.478819    6.420799
+## 76             96.39859              8.6201084             7.179576    7.524140
+## 77            104.20487              6.0776758             6.649419    5.103668
+## 78             74.61967              6.8651907             7.511608    8.192817
+## 79             68.18366              2.7839331             6.880059    5.607021
+## 80            108.10081              6.7579898             8.040407    9.222724
+## 81            107.71323              7.6543916             6.533901    9.131464
+## 82             84.02502              8.9029805             5.958152    6.530379
+## 83             40.29078              8.1005997             5.766502    3.554625
+## 84             67.79954              6.8313371             5.510363    4.967701
+## 85             93.54719              3.6834340             7.955581    6.310443
+## 86             64.49932              4.9984092             7.807462    5.954396
+## 87             79.78124              5.1112357             6.893512    7.390300
+## 88             66.85030              6.3524668             6.546208   10.006343
+## 89             41.35666              2.9755113             7.226070    5.544426
+## 90             66.49038              4.4847496             8.893237    4.154793
+## 91             93.46264              5.2242254             8.404434    6.288840
+## 92             92.59495              5.1777505             6.394607    7.717139
+## 93             75.04335              5.1926457             8.138416    5.289310
+## 94             56.27862              4.5962179             7.028013    6.051937
+## 95             92.16884              5.2292921             6.287571    8.055065
+## 96            109.28638              2.2522596             8.004214    3.550683
+## 97             66.56104              1.2353507             6.989834    6.352977
+## 98             66.60664              5.4919630             8.096364    5.189845
+## 99             63.87275              5.7033464             7.248274    6.886235
+## 100            83.08833              6.2836668             5.374401    7.764676
+## 101           113.96186              3.7084915             6.788411    7.031213
+## 102            62.69857              6.0141978             6.437308    5.184666
+## 103           111.35592              4.9897848             5.078847    5.948131
+## 104            77.81000              3.6981629             7.282863    8.839889
+## 105            90.50381              7.5201837             5.974611    7.193399
+## 106            72.24386              6.2654795             8.829883    7.960479
+## 107            80.46790              6.8204416             5.936210    7.075443
+## 108            88.48825              6.1032686             6.210153    7.213674
+## 109            73.74968              9.1555097             7.235388    4.405781
+## 110            92.20046              6.8945956             5.174206    5.548733
+## 111            60.61717              4.0680100             7.140993    6.145547
+## 112            66.43703              7.2314503             6.135523    8.391061
+## 113            95.22611              3.5435926             7.420011    5.328578
+## 114            77.08199              6.1794004             6.698637    5.836083
+## 115            90.33035              6.4787404             6.484082    6.455160
+## 116           114.45993              6.1965311             8.216010    8.429737
+## 117            72.49012              5.4993317             6.277731    6.844703
+## 118           118.64706              3.2815900             6.188013    4.713870
+## 119            79.63567              4.8159795             5.943672    6.560526
+## 120            81.08277              4.9531124             5.941496    6.331182
+## 121           108.02858              3.1297212             5.579417    4.940096
+## 122            72.16656              8.6552514             6.507510    6.542812
+## 123            72.46599              0.8386535             7.415204    6.264944
+## 124            75.87370              5.5148432             7.288632    5.457551
+## 125            92.10447              4.9655845             5.608783    4.388928
+## 126           117.30867              6.7611314             7.619633    8.907090
+## 127           101.05583              3.4261129             6.985001    4.454445
+## 128            84.47497              6.5014422             7.332178    6.774507
+## 129            74.39462              2.7092534             6.195275    6.611853
+## 130            43.48032              3.9508071             7.085079    5.942475
+## 131            53.71708              6.9311213             7.597083    6.119257
+## 132           115.33311              7.5602828             6.720352    5.098026
+## 133            63.27856              3.8939981             8.569866    6.819635
+## 134            64.31019              9.9675552             7.068637    5.411150
+## 135            92.89213              4.6537627             5.860769    5.690813
+## 136            74.19427              4.0317263             6.109110    7.840483
+## 137            98.56090              5.5540723             5.647798    4.730275
+## 138           105.85657              5.4775598             5.837234    6.942673
+## 139           109.39165              4.0559215             7.432744    6.950556
+## 140            85.90855              6.8934661             4.766721    7.326093
+## 141           108.26895              2.5090565             6.988105    7.537976
+## 142            65.51507              2.2467984             6.131936    6.438774
+## 143           106.72666              5.1038650             5.987595    4.632997
+## 144            72.07748              7.6168526             6.902012    4.871927
+## 145            70.93788              3.9689171             8.445865    7.526530
+## 146            97.89447              8.3987350             6.516316    7.155376
+## 147            98.03247              7.8015221             7.290379    6.974047
+## 148           113.76884              6.4244193             7.800527    7.916805
+## 149           127.46526              6.5095858             6.663405    6.457666
+## 150           113.34630              6.4230039             5.304376    5.762685
+## 151            65.59109              6.2395766             7.579357    4.529389
+## 152           116.55362              5.4506375             5.757752    5.065975
+## 153            88.35935              5.6247182             6.496496    8.518238
+## 154            64.68280              3.1950598             6.905376    5.960283
+## 155            84.57818              2.6849358             6.865844    8.282289
+## 156            89.25469              6.4561059             7.412109    5.719671
+## 157            92.37260              6.2358877             7.057304    5.685638
+## 158            63.67460              6.0093170             6.865855    4.358453
+## 159            63.83563              6.5976737             7.403469    5.817768
+## 160            84.19858              4.7574038             6.450640    8.827358
+## 161           101.45773              4.4984067             7.814780    5.073685
+## 162           101.50874              5.5744730             6.734489    9.875120
+## 163            74.27663              8.0521477             8.997186    5.439089
+## 164            97.70267              4.2468885             5.523933    7.124925
+## 165            75.81958              2.0594020             7.419593    6.482123
+## 166            90.66970              5.2178984             6.169022    5.519161
+## 167            73.66470              7.7140499             7.278992    4.792869
+## 168            79.54844              2.2011840             7.861817    6.552411
+## 169            91.28765              4.2295746             5.250605    4.262571
+## 170            88.56588              6.3953201             5.892017    4.177634
+## 171            81.51755              8.6548606             6.398092    6.879398
+## 172            74.54611              3.9626825             8.320184    5.746865
+## 173           108.86579              3.9045989             6.797605    9.226523
+## 174            95.87162              5.3080476             5.915629    7.500033
+## 175            69.08315              7.8070117             7.356905    9.246148
+## 176            62.59488              5.0638519             8.181761    4.978676
+## 177            84.38221              3.5679088             6.721881    5.204207
+## 178            81.54290              6.6506238             6.662812    2.768994
+## 179           102.44386              6.9222621             5.718703    4.577296
+## 180           119.02284              8.6679827             6.275008    6.847748
+## 181            54.53833              6.9854207             8.983324    5.231072
+## 182            70.01000              7.2420991             8.673902    6.636447
+## 183            73.92609              4.4067823             6.814806    6.099889
+## 184            64.04373              8.4622565             8.404942    2.630136
+## 185            92.56764              5.4027870             6.812611    7.084333
+## 186            75.20985              5.0821168             7.533648    6.725160
+## 187            48.64730              8.7142724             8.410214    8.007038
+## 188            74.40863              3.7886441             6.854923    7.253107
+## 189            75.04651              3.2288874             6.672058    6.503894
+## 190           100.73294              6.1793354             7.301081    7.657413
+## 191           133.03119              4.7973952             5.390047    2.463999
+## 192            84.89639              5.6581680             8.147061    4.227577
+## 193            82.22554              7.4908946             7.142809    4.851285
+## 194            73.04870              4.6376907             6.422249    4.948217
+## 195           103.64468              6.0962507             5.895832    2.701961
+## 196           118.21398              4.2598411             5.916537    8.679453
+## 197            77.68693              4.6631722             6.463828    6.325285
+## 198            85.05180              4.7072399             6.735962    6.478195
+## 199            93.05293              7.2788937             5.438706    6.334637
+## 200            47.24625              9.1808522             7.754535    8.593735
+## 201           119.25216              6.8691285             6.972917    3.907075
+## 202           104.69664              2.2337475             6.286528    5.168482
+## 203           118.30064              5.9427899             7.962726    8.419267
+## 204            65.08812              4.8747042             6.992860    6.553020
+## 205            60.59999              7.4043135             8.003383    5.273096
+## 206            94.17437              6.2772155             6.621815    5.794165
+## 207            64.79621              7.8796334             8.545257    6.110587
+## 208            85.74267              6.5875059            10.214217    5.618425
+## 209           110.70297              8.3381971             6.029756    6.470783
+## 210            56.86090              4.1418811             6.570936    8.262371
+## 211            72.44891              5.0165152             7.553758    5.803953
+## 212            85.53446              6.0399623             7.595702    5.268489
+## 213            54.04981              5.1417089             8.325970    6.689671
+## 214            64.84288              4.8149808             6.347192    6.437769
+## 215            80.49715              5.0559718             7.381244    4.006222
+## 216            73.99090              4.8761766             6.864073    6.608217
+## 217           107.16816              5.5838429             7.118109    4.851663
+## 218           135.31959              3.2477880             8.009458    8.163518
+## 219            81.98277              3.6660450             6.759672    4.541771
+## 220            63.16576              8.7941197             6.130132    8.173479
+## 221           108.36481              4.9123549             7.243902    6.553254
+## 222            63.22363              6.3000223             6.967295    5.038087
+## 223            52.22184              3.7662804             6.856884    4.036833
+## 224            68.09793              6.1411864             8.587031    8.901583
+## 225            74.34227              4.9214900             7.297395    6.460126
+## 226            67.61855              3.6553658             6.898280    7.404756
+## 227            69.36975              6.8053807             6.424118    4.137821
+## 228            85.49484              6.5738486             4.900106    9.956542
+## 229            91.37919              4.6389678             7.198321    8.039867
+## 230            81.82377              6.2991285             6.747048    4.616840
+## 231            68.76108              8.8549390             8.513336    6.240751
+## 232           100.29291              7.1311139             7.698028    7.801897
+## 233            63.64569              6.7195196             6.458875    7.715773
+## 234            37.34795              6.2984245             8.066870    6.973794
+## 235           104.11912              5.7742460             7.651129    6.716318
+## 236            92.83706              5.4541209             7.080968    7.541601
+## 237            64.15403              4.3850462             8.193645    3.387445
+## 238            72.01802              6.6763371             6.444692    6.143088
+## 239            61.66145              5.2892027             7.159648    4.229704
+## 240            86.53248              5.4513005             7.571408    7.606889
+## 241           129.64099              4.8002800             7.284782    5.686279
+## 242            94.05764              7.7259113             7.121522    4.342633
+## 243           115.71449              4.3010044             6.167343    5.509320
+## 244            96.39457              7.1387678             7.593698    6.924034
+## 245            69.99762              7.1876946             6.875573    6.392157
+## 246           101.66681              7.1787180             5.930973    4.940265
+## 247            84.90061              4.7898804             6.445662    4.142697
+## 248           123.78891              3.4609776             8.439988    6.810899
+## 249            70.80902              6.8395507             6.258017    5.828848
+## 250            35.23777              6.2813082             8.291635    4.612879
+## 251           100.90502              7.5065650             5.364533    6.460472
+## 252            86.99539              4.9491948             7.487905    6.645099
+## 253            89.07908              7.1401776             7.297083    7.970420
+## 254            65.19694              7.5816182             8.621227    6.219764
+## 255           146.09373              5.8570354             6.645598    5.519306
+## 256            82.15611              5.4253943             6.069336    6.737145
+## 257            62.93393              6.5729497             6.883490    4.491145
+## 258            81.70568              4.7677957             8.664802    4.236170
+## 259           103.60982              6.7966449             5.615842    8.337919
+## 260           125.56804              8.4337475             3.911583    7.355158
+## 261           108.14730              4.8333059             6.559768    8.982501
+## 262            84.59183              3.8086126             7.949523   10.120749
+## 263           119.41729              4.9691602             5.486194    4.935970
+## 264            94.61063              3.3308558             7.347932    6.196900
+## 265            78.24581              7.9353917             5.964089   10.467309
+## 266            58.41215              7.1461579             7.653441    5.939174
+## 267            96.72657              4.0479461             7.252682    7.066316
+## 268            84.77659              3.8729101             6.612535    4.418305
+## 269            86.90151              4.7500576             7.181513    6.925433
+## 270           105.73006              5.0425846             7.714974    9.597911
+## 271            63.95691              4.9641114             7.473934    8.629939
+## 272           107.32309              6.1136390             5.779374    5.085023
+## 273            69.61685              6.8121480             9.318718    4.405525
+## 274           113.28015              4.9608677             7.158393    4.303650
+## 275            91.97478              3.7377182             5.439552    5.423255
+## 276            51.59523              4.2645323             7.864244    2.134682
+## 277            99.49164              5.9654627             7.228626    5.872770
+## 278            96.17849              4.9069829             6.696564    8.265166
+## 279            72.51639              4.3619872             8.008004    7.233148
+## 280            76.88869              5.3189496             6.450395    8.749358
+## 281            95.32392              7.4853577             4.854407    8.309874
+## 282           100.20828              5.1195515             8.005545    5.879788
+## 283           104.47421              4.2339869             7.664583    5.560740
+## 284            56.50317              5.8759254             7.712744    5.618223
+## 285            98.51789              5.1525271             7.353421    4.124407
+## 286            58.41909              5.4348186             6.630613    6.048495
+## 287            74.87500              6.4972279             7.096970    2.343303
+## 288            56.43119              6.2126488             6.855712    7.587123
+## 289            84.36050              4.2984054             6.671056    5.107821
+## 290            75.42372              6.6446613             7.359303    5.707160
+## 291            78.23911              9.3310257             5.791821    7.585524
+## 292            86.76505              6.0132422             6.748419    5.298192
+## 293            66.37229              4.4304677             7.314479    9.147358
+## 294            85.11291              4.8436541             8.838101    5.932919
+## 295            69.98608              7.4847902             5.832466    5.564310
+## 296            80.43888              5.0772185             7.520553    6.343433
+## 297            28.70085              5.8066512             7.630149    3.308063
+## 298            66.28004              6.5109812             5.123281    5.346714
+## 299            61.44432              7.8045718             7.410532    6.128505
+## 300            90.21246              5.9631356             8.180285    7.519410
+##     SleepQualityIndex MorningAlertness CognitiveTestScore
+## 1            5.749639         2.161879           72.23977
+## 2            5.253736         3.659312           74.68719
+## 3            3.612468         3.914861           64.53463
+## 4            5.903582         2.070485           66.71084
+## 5            8.450852         7.917410           61.34859
+## 6            6.771107         4.981066           64.89470
+## 7            7.439579         7.224844           52.26476
+## 8            5.599946         8.086004           68.92900
+## 9            3.926550         7.601666           66.65760
+## 10           4.278923         6.366343           76.50911
+## 11           6.402869         5.699500           75.44608
+## 12           4.505871         5.062725           87.57080
+## 13           5.493410         4.853630          100.94310
+## 14           5.913639         4.182057           83.37539
+## 15           5.179075         5.574464           67.46892
+## 16           4.376317         8.250929           73.06609
+## 17           6.789654         5.579297           86.68663
+## 18           5.545871         4.404470           55.16655
+## 19           7.279030         6.152124           71.84797
+## 20           5.389574         6.214481           69.61847
+## 21           7.259923         5.494341           80.84131
+## 22           8.029304         6.118968           81.13866
+## 23           6.762215         2.589395           67.55439
+## 24           5.890064         6.292015           70.85627
+## 25           6.645081         8.693287           79.45104
+## 26           5.842213         6.511278           67.01079
+## 27           5.675716         7.959538           90.06118
+## 28           7.183260         5.949582           84.09175
+## 29           6.360950         9.188465           73.71510
+## 30           7.705096         5.426697           78.90941
+## 31           6.057577         5.195866           73.33109
+## 32           6.158825         1.287811           68.73709
+## 33           5.933489         8.063002           70.75278
+## 34           5.379817         2.284971           79.99967
+## 35           7.314425         5.372929           77.01015
+## 36           8.685712         4.965348           70.77286
+## 37           6.117773         7.134783           85.49582
+## 38           5.819504         5.614318           76.26054
+## 39           4.754677         2.217432           68.06689
+## 40           5.820267         6.167712           74.54342
+## 41           8.149784         9.520106           67.86970
+## 42           5.781519         5.877319           58.12776
+## 43           5.914733         7.276861           74.94895
+## 44           5.259646         7.715910           68.42586
+## 45           6.793649         8.575378           72.45846
+## 46           6.432770         3.222395           65.33267
+## 47           5.362821         1.908382           84.08932
+## 48           4.607170         9.105025           68.38507
+## 49           8.032933         6.829090           70.68001
+## 50           6.532708         4.370659           78.77883
+## 51           6.601685         4.402039           61.23386
+## 52           6.605654         8.373067           60.49450
+## 53           7.894625         5.284167           78.80953
+## 54           5.454786         7.016860           73.55052
+## 55           6.103604         5.789485           62.98505
+## 56           6.331035         8.406851           81.03373
+## 57           4.778824         5.368352           66.88078
+## 58           5.583858         7.756483           72.25488
+## 59           7.546675         3.701956           69.03870
+## 60           7.260213         9.500000           78.03437
+## 61           7.437067         2.587420           88.32076
+## 62           5.910910         6.657142           56.38960
+## 63           6.034305         8.049621           73.12658
+## 64           4.711935         6.308514           83.56588
+## 65           7.431935         8.980315           73.78522
+## 66           7.596652         6.254751           60.68958
+## 67           6.583921         7.436688           82.20964
+## 68           7.104091         6.258462           85.01654
+## 69           6.922109         4.340591           83.90522
+## 70           8.056882         6.781357           78.65909
+## 71           6.299525         7.904057           78.97914
+## 72           4.732990         1.433724           63.00987
+## 73           7.360725         5.561182           83.65245
+## 74           4.696111         8.833160           83.09957
+## 75           6.670202         6.856047           63.61942
+## 76           7.455324         6.075443           78.64480
+## 77           6.824259         5.177055           81.52824
+## 78           8.778243         9.176311           83.82114
+## 79           4.534071         3.753919           71.25010
+## 80           5.417139         6.829822           66.42432
+## 81           6.517455         3.378569           69.97884
+## 82           5.155897         2.900519           64.92750
+## 83           5.346267         7.714455           77.48939
+## 84           5.654871         5.535136           72.53115
+## 85           5.400353         9.900000           99.45036
+## 86           6.392005         6.042604           80.94677
+## 87           5.897035         8.945378           84.69548
+## 88           5.817908         5.206094           79.71352
+## 89           7.149430         6.153970           68.32682
+## 90           7.081779        10.000000           69.24610
+## 91           6.089874         6.432537           73.16131
+## 92           6.784476         5.473993           76.88233
+## 93           7.535129         6.912509           78.89170
+## 94           6.945565         5.410008           72.00709
+## 95           8.358978         6.695064           69.09402
+## 96           7.482179         5.076388           69.05884
+## 97           8.218407         9.130481           58.07351
+## 98           4.007657         6.749856           87.83379
+## 99           6.596676         4.544511           97.05530
+## 100          6.176067         5.972895           86.99337
+## 101          6.375020         4.763001           59.40934
+## 102          5.695041         6.237322           82.87017
+## 103          6.896199         3.432296           82.23776
+## 104          4.691644         9.356054           67.96562
+## 105          5.903437         5.739540           79.88927
+## 106          5.728289         7.125447           70.43697
+## 107          5.999614         7.378869           90.28929
+## 108          5.938502         5.358120           78.65371
+## 109          6.578778         6.769734           68.82845
+## 110          7.553921         7.782899           81.69808
+## 111          5.530496         7.698241           85.58781
+## 112          5.419294         2.892174           76.98132
+## 113          7.388773         4.373315           79.79442
+## 114          6.861200         8.175220           74.30247
+## 115          6.925594         3.958848           63.65720
+## 116          7.608043         6.731601           73.48266
+## 117          6.093758         4.369482           80.23040
+## 118          5.883169         7.911813           70.71973
+## 119          7.075904         7.860337           83.00765
+## 120          6.350569         7.209921           68.07818
+## 121          7.622204         7.420705           68.73409
+## 122          6.869773         9.990932           83.31120
+## 123          5.876649         3.595869           74.21853
+## 124          6.838384         4.801043           70.88278
+## 125          5.597300         7.474011           85.33805
+## 126          7.446928         8.911974           68.11264
+## 127          5.102848         5.271407           67.73051
+## 128          7.722065         5.511020           43.70551
+## 129          6.820877         4.978454           66.46031
+## 130          6.335439         3.346673           85.08717
+## 131          7.263334         4.662738           54.27707
+## 132          7.011327         4.543135           68.48080
+## 133          7.830382         5.460784           79.39069
+## 134          7.821062         8.507473           52.55133
+## 135          6.852290         6.234239           69.89301
+## 136          4.628229         4.930271           86.40863
+## 137          5.958491         4.932254           95.43026
+## 138          6.428353         5.698459           77.90247
+## 139          7.581722         3.755099           62.73533
+## 140          6.043614         7.747289           65.39871
+## 141          6.127059         8.786903           73.44908
+## 142          8.348351         4.641281           74.80963
+## 143          6.395701         6.496757           93.57929
+## 144          5.865268         9.269143           84.70805
+## 145          7.276646         5.783834           72.84106
+## 146          6.443866         9.062115           71.64793
+## 147          5.110401         6.882967          105.14712
+## 148          6.540914         9.827150           81.26595
+## 149          5.752961         8.174995           68.31248
+## 150          6.543586         7.654873           72.75377
+## 151          6.431861         7.848054           66.22545
+## 152          6.730101         5.931900           50.95450
+## 153          3.308926         5.043528           78.12651
+## 154          6.164901         7.127255           89.82454
+## 155          7.624837         6.671155           58.69443
+## 156          7.765446         5.740516           72.55263
+## 157          5.508710         8.924450           67.93095
+## 158          7.420598         8.286270           80.21503
+## 159          5.738570         6.766496           73.27670
+## 160          5.125468         1.770505           61.39945
+## 161          6.178016         6.711297           65.18896
+## 162          6.608804         7.321973           66.69699
+## 163          7.501366         4.185773           88.44318
+## 164          5.764585         9.500000           87.93259
+## 165          6.373868         4.997530           71.88652
+## 166          7.467311         6.527076           87.27803
+## 167          5.697339         2.013885           73.26816
+## 168          6.422783         9.401470           68.73337
+## 169          7.495781         5.958290           75.57118
+## 170          7.029306         8.231553           77.84825
+## 171          6.033696         2.048365           66.44555
+## 172          4.987043         5.209649           75.21866
+## 173          6.810858         5.904793           82.87323
+## 174          4.921325         5.579013           73.29540
+## 175          6.287499         4.780445           75.42783
+## 176          7.678948         6.436924           79.94180
+## 177          7.096759         6.557124           84.66706
+## 178          4.476346         7.370712           74.37384
+## 179          6.700452         6.151057           73.25819
+## 180          6.180830         6.075569           76.89203
+## 181          5.226283         7.982945           62.06036
+## 182          6.835021         1.524220           72.89678
+## 183          6.008262         2.225382           47.28440
+## 184          6.014466         6.932867           55.24208
+## 185          5.624045         6.214449           56.73814
+## 186          5.874115         7.247689           85.47352
+## 187          5.595736         9.400000           75.13982
+## 188          5.906675         1.440208           62.37951
+## 189          5.961539         5.757079           79.91066
+## 190          6.492930         5.264398           84.88654
+## 191          7.594672         6.283300           77.08486
+## 192          4.791346         6.539332           76.11290
+## 193          7.247073         6.895403           77.32487
+## 194          7.898591         4.870506           87.01497
+## 195          8.057377         6.287299           70.30754
+## 196          7.020380         5.354719           72.29867
+## 197          5.442602         2.093457           72.42807
+## 198          7.129981         5.727206           55.86584
+## 199          5.630748         8.374141           84.16568
+## 200          6.157035         5.561327           95.57272
+## 201          6.883082         8.273164           66.26205
+## 202          5.695241         4.752901           87.62680
+## 203          5.353600         6.310669           66.58006
+## 204          6.965773         8.670583           73.32788
+## 205          8.367224         6.204843           90.08012
+## 206          7.743234         4.971860           69.79561
+## 207          7.207186         7.421563           74.85314
+## 208          7.479185         5.650954           56.98497
+## 209          7.137719         1.038449           68.35796
+## 210          6.949900         6.566720           52.93728
+## 211          7.398618         7.603111           76.29178
+## 212          5.131637         7.246622           80.31638
+## 213          6.699485         6.765073           72.78365
+## 214          6.419052         7.193910           77.85887
+## 215          6.578903         6.105263           71.74270
+## 216          6.038628         7.615308           82.40545
+## 217          7.020488         7.610193           76.29462
+## 218          4.682072         5.533171           55.14337
+## 219          5.966145         1.817532           84.39981
+## 220          4.846120         5.345179           71.10457
+## 221          7.363947         8.316654           62.29621
+## 222          6.488276         2.698792           70.61066
+## 223          6.039168         5.486159           55.97930
+## 224          6.126570         7.976141           62.50111
+## 225          6.503881         6.861189           76.42950
+## 226          8.122175         2.533732           77.26712
+## 227          5.263480         3.315900           75.06439
+## 228          6.175510         7.627062           72.03210
+## 229          5.971862         5.406675           65.07135
+## 230          5.617035         9.156939           74.45541
+## 231          7.966873         6.772027           70.62793
+## 232          6.039280         6.639822           58.74218
+## 233          4.992267         2.959996           67.27585
+## 234          4.640587         6.978794           83.89541
+## 235          6.729147         4.197050           87.88294
+## 236          6.455254         6.010641           81.51275
+## 237          5.469287         7.079575           87.43698
+## 238          5.456386         7.483636           75.85389
+## 239          7.368510         9.100000           92.42376
+## 240          3.544305         8.845201           95.54488
+## 241          6.814283         4.321296           54.66531
+## 242          6.312563         3.447362           77.21493
+## 243          6.997155         6.433585           75.86430
+## 244          6.205695         7.388014           70.75896
+## 245          6.793275         5.322924           79.91916
+## 246          5.757225         5.855569           75.41125
+## 247          6.450795         7.749325           67.64551
+## 248          6.989084         5.690570           74.73395
+## 249          6.650872         8.332360           87.04595
+## 250          6.880307         5.490392           79.82538
+## 251          5.572079         7.130988           81.26955
+## 252          5.909325         6.743755           72.22947
+## 253          5.926660         5.675290           79.52064
+## 254          6.223510         8.157419           62.90785
+## 255          7.858583         5.101801           70.00280
+## 256          6.145821         7.537836           70.97331
+## 257          5.356441         6.416882           65.23664
+## 258          7.041646         6.779573           66.69783
+## 259          6.846643         6.147792           78.13112
+## 260          4.238788         7.521475           76.29832
+## 261          8.472811         5.524875           80.06365
+## 262          6.915177         8.444643           68.99489
+## 263          7.533891         5.463618           75.57602
+## 264          7.967072         4.493997           68.28133
+## 265          7.472618         8.149863           82.06129
+## 266          6.389464         5.817773           86.90746
+## 267          7.717698         2.824232           76.83325
+## 268          6.754600         6.797380           85.61194
+## 269          7.590485         7.521283           75.32500
+## 270          6.699875         9.323690           83.05594
+## 271          4.409103         6.296853           72.75418
+## 272          7.294301         7.024921           64.75072
+## 273          6.318108         7.052082           77.46721
+## 274          6.638191         9.325398           65.04703
+## 275          6.627093         5.339722           98.39129
+## 276          6.586970         5.755777           74.65912
+## 277          8.023525         4.652855           81.45038
+## 278          5.133552         5.307671           74.87587
+## 279          3.777657         5.882169           59.66387
+## 280          3.566710         8.578212           56.01477
+## 281          7.569144         5.506508           82.49014
+## 282          5.726563         5.324344           90.49341
+## 283          6.632186         6.517753           64.65196
+## 284          6.385283         7.818028           55.43307
+## 285          5.613625         5.052521           71.74837
+## 286          7.351477         9.160010           62.62883
+## 287          6.372537         4.896441           68.49684
+## 288          6.262265         6.022672           81.10374
+## 289          6.732871         7.162606           77.49537
+## 290          7.220772         7.375138           66.70492
+## 291          5.541024         7.436213           80.88501
+## 292          7.372918         5.064526           84.66872
+## 293          7.949854         9.950385           71.62943
+## 294          5.073878         5.710111           76.37917
+## 295          6.778299         6.862478           80.20502
+## 296          6.195078         7.367713           79.26103
+## 297          7.199231         4.969239           75.40614
+## 298          5.283341         7.285191           89.32586
+## 299          8.128938         6.018321           80.82681
+## 300          4.892105         7.160819           67.49321</code></pre>
 
 
 
