@@ -1,0 +1,39 @@
+---
+title: "Question 2"
+author: "Ricky Melo, 22090685"
+date: "2025-05-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+#SleepCogStudy
+```
+
+### Test whether gender is independent of nap frequency.
+```{r}
+#study <- data.frame(SleepCogStudy$Gender == "Male")
+#SleepCogStudy.gender = subset(SleepCogStudy, Gender=="Male", SleepCogStudy, drop=TRUE)
+
+#maleNapFx <- c(SleepCogStudy$NapFrequency) 
+
+
+# Male Frequency (Fx) of Naps (Never, Often, Rarely, Sometimes)
+sleepFx <- table(SleepCogStudy$NapFrequency, SleepCogStudy$Gender == "Male")
+
+
+#names(sleepFx) = SleepCogStudy$NapFrequency[0]
+
+#male <- SleepCogStudy$Gender == "Male"
+#barplot(SleepCogStudy$NapFrequency, male)
+#plotmale#plot(SleepCogStudy$NapFrequency[SleepCogStudy$Gender == "Male"],)
+#Male <- c(SleepCogStudy$NapFrequency & SleepCogStudy$Gender["Male"])
+#Female <- c(SleepCogStudy$NapFrequency[Female])
+
+#print(Male)
+
+```
