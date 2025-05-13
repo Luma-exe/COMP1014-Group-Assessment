@@ -16,24 +16,21 @@ SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
 
 ### Test whether gender is independent of nap frequency.
 ```{r}
-#study <- data.frame(SleepCogStudy$Gender == "Male")
-#SleepCogStudy.gender = subset(SleepCogStudy, Gender=="Male", SleepCogStudy, drop=TRUE)
+# Filter maleFx and femaleFx
+FilteredStudy <- subset(SleepCogStudy, Gender %in% c("Male", "Female"))
 
-#maleNapFx <- c(SleepCogStudy$NapFrequency) 
+genderTable <- table((FilteredStudy$Gender), (FilteredStudy$NapFrequency)) 
+barplot(genderTable, col = c("pink", "skyblue"), beside = TRUE, legend = rownames(genderTable),
+        main = "Nap Frequency by Gender",
+        xlab = "Nap Frequency",
+        ylab = "Count") 
 
 
-# Male Frequency (Fx) of Naps (Never, Often, Rarely, Sometimes)
-sleepFx <- table(SleepCogStudy$NapFrequency, SleepCogStudy$Gender == "Male")
 
+# H0: Gender is dependent of nap frequency
+# HA: Gender is dependent of nap frequency
 
-#names(sleepFx) = SleepCogStudy$NapFrequency[0]
+chisq.test(genderTable)
 
-#male <- SleepCogStudy$Gender == "Male"
-#barplot(SleepCogStudy$NapFrequency, male)
-#plotmale#plot(SleepCogStudy$NapFrequency[SleepCogStudy$Gender == "Male"],)
-#Male <- c(SleepCogStudy$NapFrequency & SleepCogStudy$Gender["Male"])
-#Female <- c(SleepCogStudy$NapFrequency[Female])
-
-#print(Male)
-
+# As the p-value is greater than 0, we reject the null hypothesis
 ```
