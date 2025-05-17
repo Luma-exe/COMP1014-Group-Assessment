@@ -1,0 +1,40 @@
+---
+title: "Question 3"
+author: "Ricky and Dylan"
+date: "2025-05-17"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 3
+
+Test whether participants who use melatonin supplements have significantly longer average sleep durations than those who don’t.
+
+# Hypothesis
+
+Null Hypothesis H0 - There is not a difference between melatonin users and non melatonin users for average sleep duration.
+
+Alternative Hypothesis H1 - Users that use melatonin have a longer average sleep duration than non melatonin users.
+
+```{r}
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+```
+
+```{r}
+usesMelatonin <- SleepCogStudy[SleepCogStudy$MelatoninUse == 1, ]
+noMelatonin <- SleepCogStudy[SleepCogStudy$MelatoninUse == 0, ]
+
+mean(usesMelatonin$AverageSleepDuration)
+mean(noMelatonin$AverageSleepDuration)
+
+t.test(usesMelatonin$AverageSleepDuration, noMelatonin$AverageSleepDuration)
+```
+
+# Conclusion
+
+As the p value is less that 0.05 we can prove the alternative hypothesis that melatonin users have a longer average sleep duration than non melatonin users.
