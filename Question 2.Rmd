@@ -11,26 +11,42 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
-#SleepCogStudy
 ```
 
 ### Test whether gender is independent of nap frequency.
-```{r}
-# Filter maleFx and femaleFx
-FilteredStudy <- subset(SleepCogStudy, Gender %in% c("Male", "Female"))
 
-genderTable <- table((FilteredStudy$Gender), (FilteredStudy$NapFrequency)) 
-barplot(genderTable, col = c("pink", "skyblue"), beside = TRUE, legend = rownames(genderTable),
+```{r}
+# Inital Table
+table(SleepCogStudy$Gender, SleepCogStudy$NapFrequency)
+genderTable = matrix(c(43,41,33,38,28,27,28,47,1,1,2,4,2,1,2,2), ncol = 4)
+
+dimnames(genderTable) = list(gender = c("Female","Male","Non-Binary", "Other"), 
+                             napFrequency = c("Never", "Often","Rarely", "Sometimes"))
+
+barplot(genderTable, col = c("pink", "skyblue", "yellow", "brown"), beside = TRUE, legend = rownames(genderTable),
         main = "Nap Frequency by Gender",
         xlab = "Nap Frequency",
-        ylab = "Count") 
+        ylab = "Count")   
+```
 
 
-
-# H0: Gender is dependent of nap frequency
+```{r}
+# H0: Gender is independent of nap frequency
 # HA: Gender is dependent of nap frequency
 
-chisq.test(genderTable)
+# Expected Values
+gender.count = rowSums(genderTable)
+napFrequency.counts = colSums(genderTable)
+outer(gender.count, napFrequency.counts) / sum(genderTable)
 
-# As the p-value is greater than 0, we reject the null hypothesis
+# Test independence of gender on nap frequency
+chisq.test(genderTable, simulate.p.value = TRUE)
+# p-value = 0.5662 
+
+# Conclusion:
+# As the p-value is greater than 0.05
+# we do not reject the null hypothesis
 ```
+
+
+
