@@ -1,0 +1,121 @@
+---
+title: "COMP1014 / MATH7016 Assignment Autumn 2025"
+author: "Ricky Melo, and Dylan Costa"
+date: "Due 20-05-2025"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### ASSIGNMENT CASE
+### -----------------------
+### Australian Neuroplasticity and Learning Efficiency Study
+Sleep quality and cognitive function play a vital role in overall well-being and
+productivity. This study examines these factors in adults aged 20-35 across
+Australia, including individuals from various occupational backgrounds and
+lifestyles. It explores how sleep patterns, lifestyle habits, and daily routines
+influence learning efficiency and cognitive adaptability.
+
+### Data Collection Process
+The study used stratified random sampling to capture participants from
+diverse occupations and lifestyles. Recruitment was conducted through
+university mailing lists, workplace wellness programs, and social media,
+resulting in a final sample of 300 individuals selected after screening.
+
+### Data Sources:
+• Wearable device tracking: All participants used wrist-based trackers to
+measure sleep duration, sleep consistency, and physical activity levels.
+• Self-reported surveys: Participants completed structured questionnaires on
+diet, caffeine intake, screen time, stress, and social interactions.
+• Cognitive performance tests: Standardised assessments measured memory,
+reaction time, and logical reasoning over three months.
+
+
+
+### Question 2: Test whether gender is independent of nap frequency.
+```{r}
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+```
+
+```{r}
+# Initalise Table
+table(SleepCogStudy$Gender, SleepCogStudy$NapFrequency)
+genderTable = matrix(c(43,41,33,38,28,27,28,47,1,1,2,4,2,1,2,2), ncol = 4)
+
+dimnames(genderTable) = list(gender = c("Female","Male","Non-Binary", "Other"), 
+                             napFrequency = c("Never", "Often","Rarely", "Sometimes"))
+
+barplot(genderTable, col = c("pink", "skyblue", "yellow", "brown"), beside = TRUE, legend = rownames(genderTable),
+        main = "Nap Frequency by Gender",
+        xlab = "Nap Frequency",
+        ylab = "Count")   
+```
+
+
+```{r}
+# H0: Gender is independent of nap frequency
+# HA: Gender is dependent of nap frequency
+
+# Expected Values
+gender.count = rowSums(genderTable)
+napFrequency.counts = colSums(genderTable)
+outer(gender.count, napFrequency.counts) / sum(genderTable)
+
+# Test independence of gender on nap frequency
+chisq.test(genderTable, simulate.p.value = TRUE)
+# p-value = 0.5662 
+
+# Conclusion:
+# As the p-value is greater than 0.05
+# we do not reject the null hypothesis
+```
+
+
+
+## Question 3
+Test whether participants who use melatonin supplements have significantly longer average sleep durations than those who don’t.
+
+## Question 4
+Test whether average sleep duration vary significantly across different genders.
+
+### Q5. Test if screen time before bed can be used to predict average sleep duration among office workers.
+``` {r}
+# Load csv file
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+ 
+#H0: Screen time before bed has no effect on average sleep duration
+#HA: Screen time before bed significantly predicts average sleep duration 
+
+#H0: m1 = 0
+#hA: m1 =/= 0
+
+#Filter data to office workers
+office_data <- subset(SleepCogStudy, OccupationType == "Office Worker")
+
+# Fit linear regression model 
+fit <- lm(AverageSleepDuration ~ ScreenTimeBeforeBed, data = office_data)
+summary(fit)
+
+#plot Sleep Duration vs. Screen Time 
+plot(office_data$ScreenTimeBeforeBed, office_data$AverageSleepDuration,
+     main = "Sleep Duration vs. Screen Time (Office Workers)",
+     xlab = "Screen Time Before Bed (hours)",
+     ylab = "Average Sleep Duration (hours)",
+     pch = 19, col = "darkgreen")
+abline(fit, col = "red", lwd = 2)
+
+```
+Test if screen time before bed can be used to predict average sleep duration among office workers.
+• Fit to a suitable model and show all key steps.
+• Assess the strength of the predictive power of the model.
+• Plot the residuals. What do they suggest about the model?
+    
+
+## Question 6
+Which of your results surprised you and why? What would you test if you had more time and interest?
+
+Only create a question and explain the solution method in words.
+
