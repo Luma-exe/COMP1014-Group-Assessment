@@ -1,0 +1,56 @@
+---
+title: "Question 5"
+author: '22090685'
+date: "2025-05-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+``` {r}
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+screenTime <- SleepCogStudy$ScreenTimeBeforeBed
+SleepDuration <- SleepCogStudy$AverageSleepDuration
+```
+
+
+### Test if screen time before bed can be used to predict average sleep duration among office workers.
+
+``` {r}
+#Filter the data
+office_data <- subset(SleepCogStudy, OccupationType == "Office Worker")
+
+AverageSleepDuration ~ ScreenTimeBeforeBed
+model <- lm(AverageSleepDuration ~ ScreenTimeBeforeBed, data = office_data)
+summary(model)
+#plot(table(screenTime, SleepDuration))
+
+plot(office_data$ScreenTimeBeforeBed, office_data$AverageSleepDuration,
+     main = "Sleep Duration vs. Screen Time (Office Workers)",
+     xlab = "Screen Time Before Bed (hours)",
+     ylab = "Average Sleep Duration (hours)",
+     pch = 19, col = "darkgreen")
+
+abline(model, col = "red", lwd = 2)
+
+```
+
+####    Fit to a suitable model and show all key steps.
+``` {r}
+
+```
+   
+####    Assess the strength of the predictive power of the model.
+``` {r}
+
+```
+  
+####   Plot the residuals. What do they suggest about the model?
+``` {r}
+
+```
+
+
