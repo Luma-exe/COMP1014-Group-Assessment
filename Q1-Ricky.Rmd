@@ -1,6 +1,6 @@
 ---
 title: "Question 1"
-author: "Ricky and Dylan"
+author: "Ricky Melo, 22090685"
 date: "2025-05-09"
 output: html_document
 ---
@@ -63,3 +63,4 @@ SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
 - MentalHealthHistory: 1 if the participant has been diagnosed with anxiety/depression, 0 otherwise.
 
 Please conduct all the analyses as outlined using this dataset in the sections below.
+
