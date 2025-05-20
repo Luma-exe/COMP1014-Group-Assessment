@@ -9,48 +9,67 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-``` {r}
-SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
-screenTime <- SleepCogStudy$ScreenTimeBeforeBed
-SleepDuration <- SleepCogStudy$AverageSleepDuration
-```
-
-
 ### Test if screen time before bed can be used to predict average sleep duration among office workers.
-
 ``` {r}
-#Filter the data
+# Load csv file
+SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
+ 
+#H0: Screen time before bed has no effect on average sleep duration
+#HA: Screen time before bed significantly predicts average sleep duration 
+
+#H0: m1 = 0
+#hA: m1 =/= 0
+
+#Filter data to office workers
 office_data <- subset(SleepCogStudy, OccupationType == "Office Worker")
 
-AverageSleepDuration ~ ScreenTimeBeforeBed
-model <- lm(AverageSleepDuration ~ ScreenTimeBeforeBed, data = office_data)
-summary(model)
-#plot(table(screenTime, SleepDuration))
+# Fit linear regression model 
+fit <- lm(AverageSleepDuration ~ ScreenTimeBeforeBed, data = office_data)
+summary(fit)
 
+#plot Sleep Duration vs. Screen Time 
 plot(office_data$ScreenTimeBeforeBed, office_data$AverageSleepDuration,
      main = "Sleep Duration vs. Screen Time (Office Workers)",
      xlab = "Screen Time Before Bed (hours)",
      ylab = "Average Sleep Duration (hours)",
      pch = 19, col = "darkgreen")
-
-abline(model, col = "red", lwd = 2)
+abline(fit, col = "red", lwd = 2)
 
 ```
 
 ####    Fit to a suitable model and show all key steps.
+A linear regression model was used to display the relation of Sleep Duration vs Screen Time. The coefficients provided the slope of the regression line and the, intercept. The ABOVA table display the p-value of 3.411e-05, an indicator that screentime usage before bed has a great impact on sleep duration.  
 ``` {r}
+# Coefficients
+coef(fit)
+
+# Confidence intervals
+confint(fit)
+
+# ANOVA table
+anova(fit)
 
 ```
    
 ####    Assess the strength of the predictive power of the model.
 ``` {r}
-
+summary(fit)$r.squared  # R-squared value
+summary(fit)$adj.r.squared  # Adjusted R-squared
 ```
   
 ####   Plot the residuals. What do they suggest about the model?
-``` {r}
+your p-value in summary(fit) is < 0.05, screen time is a statistically significant predictor.
+A low R² means weak practical predictive power, even if significant.
 
+``` {r}
+# Residual plot
+plot(fit$residuals,
+     main = "Residuals of the Model",
+     ylab = "Residuals",
+     xlab = "Index",
+     pch = 19,
+     col = "purple")
+abline(h = 0, col = "red", lty = 2)
 ```
 
 
