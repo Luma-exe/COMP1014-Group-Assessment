@@ -12,11 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Question 3
-
 Test whether participants who use melatonin supplements have significantly longer average sleep durations than those who don’t.
 
 # Hypothesis
-
 Null Hypothesis H0 - There is not a difference between melatonin users and non melatonin users for average sleep duration.
 
 Alternative Hypothesis H1 - Users that use melatonin have a longer average sleep duration than non melatonin users.
@@ -29,6 +27,17 @@ SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
 usesMelatonin <- SleepCogStudy[SleepCogStudy$MelatoninUse == 1, ]
 noMelatonin <- SleepCogStudy[SleepCogStudy$MelatoninUse == 0, ]
 
+boxplot(usesMelatonin$AverageSleepDuration, noMelatonin$AverageSleepDuration,
+        names = c("Melatonin Users", "Non Melatonin Users"),
+        ylab = "Average Sleep Duration (hours)",
+        main = "Sleep Duration based off Melatonin Use",
+        col = c("blue", "red"))
+```
+
+# Expectation
+Based from the boxplot, we can predict a statistically significant difference if people who use melatonin show noticeably longer sleep lengths. It then makes sense to assume that melatonin users might sleep longer based on their use of a melatonin.
+
+```{r}
 mean(usesMelatonin$AverageSleepDuration)
 mean(noMelatonin$AverageSleepDuration)
 
@@ -36,5 +45,16 @@ t.test(usesMelatonin$AverageSleepDuration, noMelatonin$AverageSleepDuration)
 ```
 
 # Conclusion
+If the p value less than 0.05 we can reject the null hypothesis and then accept the alternative that melatonin users sleep longer.
 
+If the p value is greater or equal 0.05 we fail to reject the null hypothesis.
+
+## Interpreation
 As the p value is less that 0.05 we can prove the alternative hypothesis that melatonin users have a longer average sleep duration than non melatonin users.
+
+## Was the expectation correct?
+Yes it was as the box plot showcased a difference and then hypothesis test statistically confirmed it.
+
+# Errors or Warnings
+
+I encountered some issues in regards to how to format t.test function but after looking at the r documentation and a youtube video I was able to correct the syntax errors I had made and get the code working.

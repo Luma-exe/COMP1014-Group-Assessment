@@ -12,11 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Question 4
-
 Test whether average sleep duration vary significantly across different genders.
 
 # Hypotheses
-
 Null Hypothesis H0 - All genders have the same average sleep duration.
 
 Alternative Hypothesis H1 - At least one gender has a different average sleep duration.
@@ -26,12 +24,43 @@ SleepCogStudy <- read.csv("Resources/Sleep_Cognition_Study_f1PhaXA.csv")
 ```
 
 ```{r}
-sleepDurGender <- SleepCogStudy[SleepCogStudy$Gender %in% c("Male", "Female"), ]
+sleepDurGender <- na.omit(SleepCogStudy[, c("Gender", "AverageSleepDuration")])
 
-t.test(AverageSleepDuration ~ Gender, data = sleepDurGender)
+boxplot(AverageSleepDuration ~ Gender, data = sleepDurGender,
+        col = c("blue", "red"),
+        ylab = "Average Sleep Duration (hours)",
+        main = "Sleep Duration by Gender")
 ```
 
+# Expectation:
+The boxplot allows us to see whether the sleep lengths of the all the genders differ noticeably from eachother. We may not see a statistically significant difference if the medians and spreads appear to be similar.
+
+```{r}
+anova_result <- aov(AverageSleepDuration ~ Gender, data = sleepDurGender)
+summary(anova_result)
+```
+
+
 # Conclusion
+If the p value less than 0.05 we reject the null hypothesis and can then conclude that average sleep duration does indeed differ between genders.
 
-As the p value is greater than 0.05 we prove the Null Hypothesis that all genders have the same average sleep duration.
+If the p value is greater or equal 0.05 we fail to reject the null hypothesis.
 
+As the p value is greater than 0.05 we prove the Null Hypothesis that all genders have the same average sleep duration. Thus there is no statistically significant difference in average sleep duration between the different genders of the participants.
+
+## Was the expectation correct?
+Yes it was as with the box plot was can visually see the similarities thus as a result we did not anticipate a significant difference which the statistical test verified.
+
+# AI Use
+
+## How it was used:
+I used ChatGPT to determine which statistical function to use for the question. Because there were more than two gender categories in the dataset I was having trouble remembering if on what to do in that situation. Whether I could use a t-test again or needed to use something else. I did try a t-test again which obviously did not work which is when I used ChatGPT to tell me which functions I could use to answer this question. ChatGPT made it clear that a one-way ANOVA would be best technique for comparing sleep duration across three or more genders and that a t-test can only be used for two groups.
+
+## Was it helpful or confusing?
+It was beneficial because it clarified why my initial strategy wouldn't work.  Additionally it demonstrated how I could construct the aov() function by walking me step by step and then helped me to understand the aov() functions output.
+
+##Did the AI suggest anything different from what we covered in tutorials?
+I believe so as in my notes I do not have the ANOVA function but honestly I could of missed it when I have been note taking as I do not attend most of the tutorials due to having commitments on that day already.
+
+##If you preferred the AI’s method, explain why and how it was better than the methods discussed in the class.
+I have always preferred AI's teaching as it's one and one and I can ask it quite literally anything in regards to the question and it will explain it. I can ask it to explain step by step for instance and it'll guide me through the whole process. It is a very powerful tool and can be very beneficial when used correctly.
