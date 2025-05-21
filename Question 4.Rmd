@@ -46,6 +46,7 @@ If the p value less than 0.05 we reject the null hypothesis and can then conclud
 
 If the p value is greater or equal 0.05 we fail to reject the null hypothesis.
 
+## Interpreation
 As the p value is greater than 0.05 we prove the Null Hypothesis that all genders have the same average sleep duration. Thus there is no statistically significant difference in average sleep duration between the different genders of the participants.
 
 ## Was the expectation correct?
@@ -59,8 +60,8 @@ I used ChatGPT to determine which statistical function to use for the question. 
 ## Was it helpful or confusing?
 It was beneficial because it clarified why my initial strategy wouldn't work.  Additionally it demonstrated how I could construct the aov() function by walking me step by step and then helped me to understand the aov() functions output.
 
-##Did the AI suggest anything different from what we covered in tutorials?
+## Did the AI suggest anything different from what we covered in tutorials?
 I believe so as in my notes I do not have the ANOVA function but honestly I could of missed it when I have been note taking as I do not attend most of the tutorials due to having commitments on that day already.
 
-##If you preferred the AI’s method, explain why and how it was better than the methods discussed in the class.
+## If you preferred the AI’s method, explain why and how it was better than the methods discussed in the class.
 I have always preferred AI's teaching as it's one and one and I can ask it quite literally anything in regards to the question and it will explain it. I can ask it to explain step by step for instance and it'll guide me through the whole process. It is a very powerful tool and can be very beneficial when used correctly.
